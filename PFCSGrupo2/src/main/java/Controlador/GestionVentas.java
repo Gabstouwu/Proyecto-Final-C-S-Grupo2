@@ -62,25 +62,25 @@ public class GestionVentas {
         }
     }
 
-    public void actualizarVenta(String columnaAModificar, Venta ventaObjeto, String dato) {
-        //                (String columnaAModificar, String dato, String id)
-        try {
-
-            conexion.setConexion();
-
-            conexion.setConsulta("Update ventas set" + columnaAModificar + "=" + dato + "where id" + ventaObjeto.getId());
-
-            if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Venta Modificada");
-            } else {
-
-                System.out.print("Falla combio de la venta");
-            }
-            conexion.cerrarConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void actualizarVenta(String columnaAModificar, Venta ventaObjeto, String dato) {
+//        //                (String columnaAModificar, String dato, String id)
+//        try {
+//
+//            conexion.setConexion();
+//
+//            conexion.setConsulta("Update ventas set" + columnaAModificar + "=" + dato + "where id" + ventaObjeto.getId());
+//
+//            if (conexion.getConsulta().executeUpdate() > 0) {
+//                System.out.print("Venta Modificada");
+//            } else {
+//
+//                System.out.print("Falla combio de la venta");
+//            }
+//            conexion.cerrarConexion();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void eliminarVenta(Venta ventaObjeto) { //listo
 

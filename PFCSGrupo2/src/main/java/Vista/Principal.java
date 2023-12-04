@@ -2,7 +2,7 @@ package Vista;
 
 import Controlador.GestionClientes;
 import Controlador.GestionProductos;
-
+import Controlador.GestionVentas;
 
 /**
  *
@@ -130,13 +130,28 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Ventas");
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4.setText("Crear venta");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setText("jMenuItem5");
+        jMenuItem5.setText("Ver ventas");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
-        jMenuItem6.setText("jMenuItem6");
+        jMenuItem6.setText("Eliminar venta");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuBar1.add(jMenu1);
@@ -205,6 +220,18 @@ public class Principal extends javax.swing.JFrame {
         JDPEscritorio.add(eliminar);
         eliminar.show();
     }//GEN-LAST:event_MIEliminarUsuarioActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        GestionVentas gestionVentas = new GestionVentas();
+        gestionVentas.consultarVentasCompletos();}//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
