@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="MBUsuarios">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Usuarios"/>
+            <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MIRegistroUsuario">
@@ -19,7 +19,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MIEditarUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar informaci&#xf3;n de usuario"/>
+                <Property name="text" type="java.lang.String" value="Editar informaci&#xf3;n de Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIEditarUsuarioActionPerformed"/>
@@ -27,7 +27,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MIMostrarUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar informaci&#xf3;n usuario"/>
+                <Property name="text" type="java.lang.String" value="Mostrar informaci&#xf3;n clientes"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIMostrarUsuarioActionPerformed"/>
@@ -35,7 +35,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MIEliminarUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar usuario"/>
+                <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIEliminarUsuarioActionPerformed"/>
@@ -86,6 +86,23 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ventas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jMenuItem4"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jMenuItem5"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jMenuItem6"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

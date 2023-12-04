@@ -4,6 +4,7 @@
  */
 package com.mycompany.pfcsgrupo2;
 
+import Controlador.GestionClientes;
 import Controlador.GestionProductos;
 
 /**
@@ -41,6 +42,9 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +59,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 495, Short.MAX_VALUE)
         );
 
-        MBUsuarios.setText("Usuarios");
+        MBUsuarios.setText("Clientes");
 
         MIRegistroUsuario.setText("Registro de usuarios");
         MIRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +69,7 @@ public class Principal extends javax.swing.JFrame {
         });
         MBUsuarios.add(MIRegistroUsuario);
 
-        MIEditarUsuario.setText("Editar información de usuario");
+        MIEditarUsuario.setText("Editar información de Cliente");
         MIEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MIEditarUsuarioActionPerformed(evt);
@@ -73,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
         });
         MBUsuarios.add(MIEditarUsuario);
 
-        MIMostrarUsuario.setText("Mostrar información usuario");
+        MIMostrarUsuario.setText("Mostrar información clientes");
         MIMostrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MIMostrarUsuarioActionPerformed(evt);
@@ -81,7 +85,7 @@ public class Principal extends javax.swing.JFrame {
         });
         MBUsuarios.add(MIMostrarUsuario);
 
-        MIEliminarUsuario.setText("Eliminar usuario");
+        MIEliminarUsuario.setText("Eliminar Cliente");
         MIEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MIEliminarUsuarioActionPerformed(evt);
@@ -128,6 +132,16 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(JBProductos);
 
         jMenu1.setText("Ventas");
+
+        jMenuItem4.setText("jMenuItem4");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("jMenuItem5");
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setText("jMenuItem6");
+        jMenu1.add(jMenuItem6);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -184,10 +198,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_MIEditarUsuarioActionPerformed
 
     private void MIMostrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMostrarUsuarioActionPerformed
-        // TODO add your handling code here:
-        MostrarUsuario muestra = new MostrarUsuario();
-        JDPEscritorio.add(muestra);
-        muestra.show();
+        GestionClientes gestionClientes = new GestionClientes();
+        gestionClientes.consultarClientesCompletos();
     }//GEN-LAST:event_MIMostrarUsuarioActionPerformed
 
     private void MIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEliminarUsuarioActionPerformed
@@ -246,5 +258,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
