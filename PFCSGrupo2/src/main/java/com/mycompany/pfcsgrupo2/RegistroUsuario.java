@@ -226,7 +226,20 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
             } else {
                 System.out.println("La inserción no tuvo éxito");
             }
-
+//            while (resultado.next()) {
+//                int id = resultado.getInt("id");
+//                String idString = String.valueOf(id);
+//                String nombreString = resultado.getString("nombre");
+//                String telefonoString = resultado.getString("telefono");
+//                String correoString = resultado.getString("correo");
+//                String fechaString = resultado.getString("fechaNacimiento");
+//
+//                
+//                    JTAInfoUser.setText("ID; " + idString + "\n"
+//                            + "Nombre: " + nombreString + "\n"
+//                            + "Telefono: " + telefonoString + "\n"
+//                            + "Correo: " + correoString+ "\n"
+//                            + "Fecha de Nacimiento: " + fechaString + "\n");
         } catch (SQLException error) {
             error.printStackTrace();
         } finally {
