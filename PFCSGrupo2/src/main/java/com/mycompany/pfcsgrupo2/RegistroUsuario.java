@@ -4,7 +4,11 @@
  */
 package com.mycompany.pfcsgrupo2;
 
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+//import java.util.ArrayList;
 
 /**
  *
@@ -129,13 +133,14 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                     .addComponent(JTCorreo)
                     .addComponent(JTFechaNacimiento)
                     .addComponent(JTContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(JBGuardar)))
                 .addContainerGap(75, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JBGuardar)
-                .addGap(153, 153, 153))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,14 +167,14 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JTFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBGuardar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(JBGuardar)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,32 +206,63 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
 
     private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
         // TODO add your handling code here:
-        String id = JTIdentificacion.getText();
         String nombre = JTNombre.getText();
         String telefono = JTTelefono.getText();
         String correo = JTCorreo.getText();
         String fechaNacimiento = JTFechaNacimiento.getText();
-        String password = JTContrasena.getText();
-        try{
-            Usuario usuario = new Usuario(0, nombre, telefono, correo, fechaNacimiento, password);
-ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-listaUsuarios.add(usuario);
-//            for (int id = 100; id < listaUsuarios.lastIndexOf(id); id++) {
-                   
-if (!listaUsuarios.isEmpty()) {
-    Usuario primerUsuario = listaUsuarios.get(0);
-    String infoUsuario = "Usuario agregado con exito! " + "\n" +
-                         "ID: " + primerUsuario.getId() + "\n" +
-                         "Nombre: " + primerUsuario.getNombre() + "\n" +
-                         "Teléfono: " + primerUsuario.getTelefono() + "\n" +
-                         "Correo: " + primerUsuario.getCorreo() + "\n" +
-                         "Fecha de Nacimiento: " + primerUsuario.getFechaNacimiento() + "\n" +
-                         "Contraseña: " + primerUsuario.getPassword();
-    
-    JTAInfoUser.setText(infoUsuario);
-}
-        }catch(Exception e){
-            System.out.println(e);
+        String contrasena = JTContrasena.getText();
+        
+        Connection conexion = null;
+        PreparedStatement consulta = null;
+        try {
+            // DATOS DE CONEXION Y LOGGEO
+            String url = "jdbc:mysql://127.0.0.1:3306/pfcsgrupo2";
+            String username = "root";
+            String password = "ElianCortes.21";
+
+            // ESTABLECER CONEXION
+            conexion = DriverManager.getConnection(url, username, password);
+
+            // PREPARAR CONSULTA DE INSERCIÓN
+            String insertQuery = "INSERT INTO usuarios (nombre, telefono, correo, fechaNacimiento, contraseña) VALUES (?, ?, ?, ?, ?)";
+            consulta = conexion.prepareStatement(insertQuery);
+
+            // ESTABLECER LOS VALORES DE LOS PARÁMETROS
+            consulta.setString(1, nombre);
+            consulta.setString(2, telefono);
+            consulta.setString(3, correo);
+            consulta.setString(4, fechaNacimiento);
+            consulta.setString(5, contrasena);
+
+            // EJECUTAR LA CONSULTA DE INSERCIÓN
+            int filasAfectadas = consulta.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                System.out.println("Inserción exitosa");
+                JTAInfoUser.setText("Usuario agregado con exito!");
+            } else {
+                System.out.println("La inserción no tuvo éxito");
+            }
+
+        } catch (SQLException error) {
+            error.printStackTrace();
+        } finally {
+            // LIMPIAR MEMORIA
+            if (consulta != null) {
+                try {
+                    consulta.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+            // CERRAR CONEXION
+            if (conexion != null) {
+                try {
+                    conexion.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
         }
     }//GEN-LAST:event_JBGuardarActionPerformed
 
