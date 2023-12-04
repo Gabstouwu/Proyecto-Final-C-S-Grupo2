@@ -4,6 +4,8 @@
  */
 package com.mycompany.pfcsgrupo2;
 
+import Controlador.GestionProductos;
+
 /**
  *
  * @author naoal
@@ -30,6 +32,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         MBUsuarios = new javax.swing.JMenu();
         MIRegistroUsuario = new javax.swing.JMenuItem();
+        JBProductos = new javax.swing.JMenu();
+        JMIMostrarProductos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +60,18 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(MBUsuarios);
 
+        JBProductos.setText("Productos");
+
+        JMIMostrarProductos.setText("Mostrar Productos");
+        JMIMostrarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIMostrarProductosActionPerformed(evt);
+            }
+        });
+        JBProductos.add(JMIMostrarProductos);
+
+        jMenuBar1.add(JBProductos);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -78,6 +94,14 @@ public class Principal extends javax.swing.JFrame {
         JDPEscritorio.add(miRegistro);
         miRegistro.show();
     }//GEN-LAST:event_MIRegistroUsuarioActionPerformed
+
+    private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
+        // TODO add your handling code here:
+
+        GestionProductos gestionProductos = new GestionProductos();
+        gestionProductos.consultarProductosCompletos();
+
+    }//GEN-LAST:event_JMIMostrarProductosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,7 +139,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JBProductos;
     private javax.swing.JDesktopPane JDPEscritorio;
+    private javax.swing.JMenuItem JMIMostrarProductos;
     private javax.swing.JMenu MBUsuarios;
     private javax.swing.JMenuItem MIRegistroUsuario;
     private javax.swing.JMenuBar jMenuBar1;
