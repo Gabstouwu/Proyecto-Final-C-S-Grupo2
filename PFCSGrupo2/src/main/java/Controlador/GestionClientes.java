@@ -25,7 +25,7 @@ public class GestionClientes {
                 String correo = resultado.getNString("correo_cliente");
                 String fecha = resultado.getNString("fecha_cliente");
 
-                System.out.println("\n ID de la lista:" + id + "\n Nombre del cliente:" + nombre + "\n Telefono:" + telefono + "\n Correo:" + correo + "\n Fecha de nacimiento:" + fecha + "\n----------------");
+                System.out.println("\n ID del cliente:" + id + "\n Nombre del cliente:" + nombre + "\n Telefono:" + telefono + "\n Correo:" + correo + "\n Fecha de nacimiento:" + fecha + "\n----------------");
             }
             conexion.cerrarConexion();
         } catch (SQLException e) {
@@ -33,16 +33,18 @@ public class GestionClientes {
         }
     }
 
-    public void insertarCliente(String nombre, String id) {
+    public void insertarCliente( String nombre,  String telefono, String correo, String fecha, String contraseña) {
 
         try {
 
             conexion.setConexion();
 
-            conexion.setConsulta("INSERT INTO productos (nombre_producto,id_producto) VALUES (?,?)");
+            conexion.setConsulta("INSERT INTO clientes (nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña) VALUES (?,?,?,?,?) ");
             conexion.getConsulta().setString(1, nombre);
-            conexion.getConsulta().setString(2, id);
-
+            conexion.getConsulta().setString(2, telefono);
+            conexion.getConsulta().setString(3, correo);
+            conexion.getConsulta().setString(4, fecha);
+            conexion.getConsulta().setString(5, contraseña);
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.print("Producto Guardado");
             } else {
@@ -61,13 +63,13 @@ public class GestionClientes {
 
             conexion.setConexion();
 
-            conexion.setConsulta("Update productos set " + columnaAModificar + " = " + dato + "where id " + id);
+            conexion.setConsulta("Update clientes set " + columnaAModificar + " = " + dato + "where id " + id);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Producto Modificado");
+                System.out.print("Cliente Modificado");
             } else {
 
-                System.out.print("Falla combio de el producto");
+                System.out.print("Falla combio de información del cliente");
             }
             conexion.cerrarConexion();
         } catch (SQLException e) {
@@ -81,13 +83,13 @@ public class GestionClientes {
 
             conexion.setConexion();
 
-            conexion.setConsulta("Delete from productos where id = " + id);
+            conexion.setConsulta("Delete from clientes where id = " + id);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Producto Eliminado");
+                System.out.print("Cliente Eliminado");
             } else {
 
-                System.out.print("Falla eliminar de el producto");
+                System.out.print("Falla eliminar el cliente");
             }
             conexion.cerrarConexion();
         } catch (SQLException e) {

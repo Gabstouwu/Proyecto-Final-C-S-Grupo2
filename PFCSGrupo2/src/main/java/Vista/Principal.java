@@ -174,9 +174,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void MIRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRegistroUsuarioActionPerformed
         // TODO add your handling code here:
-        RegistroUsuario miRegistro = new RegistroUsuario();
-        JDPEscritorio.add(miRegistro);
-        miRegistro.show();
+        GestionClientes gestionClientes = new GestionClientes();
+        gestionClientes.insertarCliente("Sara Hidalgo", "83125687", "sara@example.com", "12-03-1986", "sara12");
     }//GEN-LAST:event_MIRegistroUsuarioActionPerformed
 
     private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
@@ -204,9 +203,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void MIEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEditarUsuarioActionPerformed
         // TODO add your handling code here:
-        EditarUsuario nuevaInfo = new EditarUsuario();
-        JDPEscritorio.add(nuevaInfo);
-        nuevaInfo.show();
+        GestionClientes gestionClientes = new GestionClientes();
+        gestionClientes.actualizarCliente("1", "Jose Luis Castro", "033");
     }//GEN-LAST:event_MIEditarUsuarioActionPerformed
 
     private void MIMostrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMostrarUsuarioActionPerformed
@@ -216,9 +214,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void MIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEliminarUsuarioActionPerformed
         // TODO add your handling code here:
-        EliminarUsuario eliminar = new EliminarUsuario();
-        JDPEscritorio.add(eliminar);
-        eliminar.show();
+       GestionClientes gestionClientes = new GestionClientes();
+        gestionClientes.eliminarCliente(1);
     }//GEN-LAST:event_MIEliminarUsuarioActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
