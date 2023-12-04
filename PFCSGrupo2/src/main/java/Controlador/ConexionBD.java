@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConexionBD {
 
@@ -14,16 +16,17 @@ public class ConexionBD {
     ResultSet resultado = null;
 
     //Parametros de inicializacion de BD
-    String url = "jdbc:mysql://127.0.0.1:3306/BD_Tienda";
+    String url = "jdbc:mysql://127.0.0.1:3306/basedatostienda";
     String username = "root";
-    String password = "8gRdmWZu6RnWsD5";
+    String password = "HsM+sO4789S5";
 
     public void setConexion() {
         try {
+            //Class.forName("com.mysql.jdbc.Driver"); 
             this.conexion = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        } 
     }
 
     public void setConsulta(String sql) {

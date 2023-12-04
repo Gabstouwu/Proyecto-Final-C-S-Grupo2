@@ -41,6 +41,10 @@ public class Principal extends javax.swing.JFrame {
         MIEliminarUsuario = new javax.swing.JMenuItem();
         JBProductos = new javax.swing.JMenu();
         JMIMostrarProductos = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,11 +52,11 @@ public class Principal extends javax.swing.JFrame {
         JDPEscritorio.setLayout(JDPEscritorioLayout);
         JDPEscritorioLayout.setHorizontalGroup(
             JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 585, Short.MAX_VALUE)
         );
         JDPEscritorioLayout.setVerticalGroup(
             JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 495, Short.MAX_VALUE)
         );
 
         MBUsuarios.setText("Usuarios");
@@ -101,7 +105,34 @@ public class Principal extends javax.swing.JFrame {
         });
         JBProductos.add(JMIMostrarProductos);
 
+        jMenuItem1.setText("Agregar Producto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        JBProductos.add(jMenuItem1);
+
+        jMenuItem2.setText("Editar Producto");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        JBProductos.add(jMenuItem2);
+
+        jMenuItem3.setText("Eliminar Producto");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        JBProductos.add(jMenuItem3);
+
         jMenuBar1.add(JBProductos);
+
+        jMenu1.setText("Ventas");
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -132,6 +163,22 @@ public class Principal extends javax.swing.JFrame {
         gestionProductos.consultarProductosCompletos();
 
     }//GEN-LAST:event_JMIMostrarProductosActionPerformed
+
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        GestionProductos gestionProductos = new GestionProductos();
+        gestionProductos.insertarProducto("huevo","002");    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        GestionProductos gestionProductos = new GestionProductos();
+        gestionProductos.actualizarProducto("2","Leche","022");     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+
+        GestionProductos gestionProductos = new GestionProductos();
+        gestionProductos.eliminarProducto(6);
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void MIEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEditarUsuarioActionPerformed
         // TODO add your handling code here:
@@ -198,6 +245,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MIEliminarUsuario;
     private javax.swing.JMenuItem MIMostrarUsuario;
     private javax.swing.JMenuItem MIRegistroUsuario;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }
