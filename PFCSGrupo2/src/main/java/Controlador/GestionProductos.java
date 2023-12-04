@@ -20,10 +20,10 @@ public class GestionProductos {
             while (resultado.next()) {
 
                 int id = resultado.getInt("id");
-                String nombre = resultado.getString("Nombre");
-                String id_P = resultado.getNString("Id Producto");
+                String nombre = resultado.getString("nombre_producto");
+                String id_P = resultado.getNString("id_producto");
 
-                System.out.println("ID " + id + "Nombre " + nombre + "id_P " + id_P);
+                System.out.println("\n ID de la lista:" + id + "\n Nombre del producto:" + nombre + "\n Id del producto:" + id_P + "\n----------------");
             }
             conexion.cerrarConexion();
         } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class GestionProductos {
 
             conexion.setConexion();
 
-            conexion.setConsulta("Update productos set" + columnaAModificar + "=" + dato + "where id" + id);
+            conexion.setConsulta("Update productos set " + columnaAModificar + " = " + dato + "where id " + id);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.print("Producto Modificado");
