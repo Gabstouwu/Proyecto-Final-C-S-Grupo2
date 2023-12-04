@@ -26,21 +26,58 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JDPEscritorio = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        MBUsuarios = new javax.swing.JMenu();
+        MIRegistroUsuario = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout JDPEscritorioLayout = new javax.swing.GroupLayout(JDPEscritorio);
+        JDPEscritorio.setLayout(JDPEscritorioLayout);
+        JDPEscritorioLayout.setHorizontalGroup(
+            JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        JDPEscritorioLayout.setVerticalGroup(
+            JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
+
+        MBUsuarios.setText("Usuarios");
+
+        MIRegistroUsuario.setText("Registro de usuarios");
+        MIRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIRegistroUsuarioActionPerformed(evt);
+            }
+        });
+        MBUsuarios.add(MIRegistroUsuario);
+
+        jMenuBar1.add(MBUsuarios);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(JDPEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(JDPEscritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MIRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRegistroUsuarioActionPerformed
+        // TODO add your handling code here:
+        RegistroUsuario miRegistro = new RegistroUsuario();
+        JDPEscritorio.add(miRegistro);
+        miRegistro.show();
+    }//GEN-LAST:event_MIRegistroUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +115,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane JDPEscritorio;
+    private javax.swing.JMenu MBUsuarios;
+    private javax.swing.JMenuItem MIRegistroUsuario;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
