@@ -204,24 +204,20 @@ String password = "ElianCortes.21";
 try {
     conexion = DriverManager.getConnection(url, username, password);
 
-    // Use a parameterized query to avoid SQL injection
     consulta = conexion.prepareStatement("SELECT id, contraseña FROM usuarios WHERE id = ?");
     consulta.setString(1, idBuscar);
 
     resultado = consulta.executeQuery();
 
-    // Iterate through the result set
     while (resultado.next()) {
         int id = resultado.getInt("id");
         String idString = String.valueOf(id);
         String contrasena = resultado.getString("contraseña");
 
         if (idBuscar.equals(idString) && contrasenaBuscar.equals(contrasena)) {
-            // Update information in the database
             String updateQuery = "UPDATE usuarios SET nombre=?, telefono=?, correo=?, contraseña=? WHERE id=?";
             consulta = conexion.prepareStatement(updateQuery);
 
-            // Set the values for the parameters
             consulta.setString(1, JTNuevoNombre.getText());
             consulta.setString(2, JTNuevoTelefono.getText());
             consulta.setString(3, JTNuevoCorreo.getText());
@@ -247,7 +243,7 @@ try {
 } catch (SQLException ex) {
     ex.printStackTrace();
 } finally {
-    // Close resources in a finally block
+    //cierra consulta resultado y conexion
     if (resultado != null) {
         try {
             resultado.close();
