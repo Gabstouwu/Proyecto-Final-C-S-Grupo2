@@ -30,4 +30,68 @@ public class GestionProductos {
             e.printStackTrace();
         }
     }
+
+    public void insertarProducto(String nombre, String id) {
+
+        try {
+
+            conexion.setConexion();
+
+            conexion.setConsulta("INSERT INTO productos (nombre_producto,id_producto) VALUES (?,?)");
+            conexion.getConsulta().setString(1, nombre);
+            conexion.getConsulta().setString(2, id);
+
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.print("Producto Guardado");
+            } else {
+
+                System.out.print("Falla para poder guardar el producto");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actualizarProducto(String columnaAModificar, String dato, String id) {
+
+        try {
+
+            conexion.setConexion();
+
+            conexion.setConsulta("Update productos set" + columnaAModificar + "=" + dato + "where id" + id);
+
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.print("Producto Modificado");
+            } else {
+
+                System.out.print("Falla combio de el producto");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void eliminarProducto(int id) {
+
+        try {
+
+            conexion.setConexion();
+
+            conexion.setConsulta("Delete from productos where id = " + id);
+
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.print("Producto Eliminado");
+            } else {
+
+                System.out.print("Falla eliminar de el producto");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
