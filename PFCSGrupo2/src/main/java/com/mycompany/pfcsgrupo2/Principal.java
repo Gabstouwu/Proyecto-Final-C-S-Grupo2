@@ -32,6 +32,9 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         MBUsuarios = new javax.swing.JMenu();
         MIRegistroUsuario = new javax.swing.JMenuItem();
+        MIEditarUsuario = new javax.swing.JMenuItem();
+        MIMostrarUsuario = new javax.swing.JMenuItem();
+        MIEliminarUsuario = new javax.swing.JMenuItem();
         JBProductos = new javax.swing.JMenu();
         JMIMostrarProductos = new javax.swing.JMenuItem();
 
@@ -57,6 +60,30 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         MBUsuarios.add(MIRegistroUsuario);
+
+        MIEditarUsuario.setText("Editar información de usuario");
+        MIEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIEditarUsuarioActionPerformed(evt);
+            }
+        });
+        MBUsuarios.add(MIEditarUsuario);
+
+        MIMostrarUsuario.setText("Mostrar información usuario");
+        MIMostrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIMostrarUsuarioActionPerformed(evt);
+            }
+        });
+        MBUsuarios.add(MIMostrarUsuario);
+
+        MIEliminarUsuario.setText("Eliminar usuario");
+        MIEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        MBUsuarios.add(MIEliminarUsuario);
 
         jMenuBar1.add(MBUsuarios);
 
@@ -97,11 +124,31 @@ public class Principal extends javax.swing.JFrame {
 
     private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
         // TODO add your handling code here:
-
         GestionProductos gestionProductos = new GestionProductos();
         gestionProductos.consultarProductosCompletos();
 
     }//GEN-LAST:event_JMIMostrarProductosActionPerformed
+
+    private void MIEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEditarUsuarioActionPerformed
+        // TODO add your handling code here:
+        EditarUsuario nuevaInfo = new EditarUsuario();
+        JDPEscritorio.add(nuevaInfo);
+        nuevaInfo.show();
+    }//GEN-LAST:event_MIEditarUsuarioActionPerformed
+
+    private void MIMostrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMostrarUsuarioActionPerformed
+        // TODO add your handling code here:
+        MostrarUsuario muestra = new MostrarUsuario();
+        JDPEscritorio.add(muestra);
+        muestra.show();
+    }//GEN-LAST:event_MIMostrarUsuarioActionPerformed
+
+    private void MIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEliminarUsuarioActionPerformed
+        // TODO add your handling code here:
+        EliminarUsuario eliminar = new EliminarUsuario();
+        JDPEscritorio.add(eliminar);
+        eliminar.show();
+    }//GEN-LAST:event_MIEliminarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +190,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane JDPEscritorio;
     private javax.swing.JMenuItem JMIMostrarProductos;
     private javax.swing.JMenu MBUsuarios;
+    private javax.swing.JMenuItem MIEditarUsuario;
+    private javax.swing.JMenuItem MIEliminarUsuario;
+    private javax.swing.JMenuItem MIMostrarUsuario;
     private javax.swing.JMenuItem MIRegistroUsuario;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
