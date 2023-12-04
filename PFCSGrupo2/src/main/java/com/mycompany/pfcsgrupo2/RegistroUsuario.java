@@ -4,6 +4,8 @@
  */
 package com.mycompany.pfcsgrupo2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author naoal
@@ -26,21 +28,224 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        JTIdentificacion = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        JTNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        JTTelefono = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        JTCorreo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        JTFechaNacimiento = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        JTContrasena = new javax.swing.JTextField();
+        JBGuardar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTAInfoUser = new javax.swing.JTextArea();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        jLabel1.setText("Número de Cédula");
+
+        JTIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTIdentificacionActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Nombre completo");
+
+        JTNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTNombreActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Teléfono");
+
+        JTTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTTelefonoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Correo electrónico");
+
+        JTCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTCorreoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Fecha de nacimiento");
+
+        JTFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFechaNacimientoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Contraseña");
+
+        JTContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTContrasenaActionPerformed(evt);
+            }
+        });
+
+        JBGuardar.setText("Guardar");
+        JBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBGuardarActionPerformed(evt);
+            }
+        });
+
+        JTAInfoUser.setColumns(20);
+        JTAInfoUser.setRows(5);
+        jScrollPane1.setViewportView(JTAInfoUser);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2))
+                    .addComponent(JTIdentificacion)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(JTNombre)
+                    .addComponent(JTTelefono)
+                    .addComponent(JTCorreo)
+                    .addComponent(JTFechaNacimiento)
+                    .addComponent(JTContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBGuardar)
+                .addGap(153, 153, 153))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JTIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JTFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JTContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JBGuardar)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JTIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTIdentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTIdentificacionActionPerformed
+
+    private void JTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTNombreActionPerformed
+
+    private void JTTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTTelefonoActionPerformed
+
+    private void JTCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTCorreoActionPerformed
+
+    private void JTFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFechaNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFechaNacimientoActionPerformed
+
+    private void JTContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTContrasenaActionPerformed
+        // TJTIdentificacionr handling code here:
+    }//GEN-LAST:event_JTContrasenaActionPerformed
+
+    private void JBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGuardarActionPerformed
+        // TODO add your handling code here:
+        String id = JTIdentificacion.getText();
+        String nombre = JTNombre.getText();
+        String telefono = JTTelefono.getText();
+        String correo = JTCorreo.getText();
+        String fechaNacimiento = JTFechaNacimiento.getText();
+        String password = JTContrasena.getText();
+        try{
+            Usuario usuario = new Usuario(0, nombre, telefono, correo, fechaNacimiento, password);
+ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+listaUsuarios.add(usuario);
+//            for (int id = 100; id < listaUsuarios.lastIndexOf(id); id++) {
+                   
+if (!listaUsuarios.isEmpty()) {
+    Usuario primerUsuario = listaUsuarios.get(0);
+    String infoUsuario = "Usuario agregado con exito! " + "\n" +
+                         "ID: " + primerUsuario.getId() + "\n" +
+                         "Nombre: " + primerUsuario.getNombre() + "\n" +
+                         "Teléfono: " + primerUsuario.getTelefono() + "\n" +
+                         "Correo: " + primerUsuario.getCorreo() + "\n" +
+                         "Fecha de Nacimiento: " + primerUsuario.getFechaNacimiento() + "\n" +
+                         "Contraseña: " + primerUsuario.getPassword();
+    
+    JTAInfoUser.setText(infoUsuario);
+}
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_JBGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBGuardar;
+    private javax.swing.JTextArea JTAInfoUser;
+    private javax.swing.JTextField JTContrasena;
+    private javax.swing.JTextField JTCorreo;
+    private javax.swing.JTextField JTFechaNacimiento;
+    private javax.swing.JTextField JTIdentificacion;
+    private javax.swing.JTextField JTNombre;
+    private javax.swing.JTextField JTTelefono;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
