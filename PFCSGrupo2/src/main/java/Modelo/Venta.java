@@ -51,4 +51,13 @@ public class Venta {
         return "Venta{" + "id=" + id + ", id_empleado=" + id_empleado + ", id_cliente=" + id_cliente + ", id_producto=" + id_producto + '}';
     }
 
+    public Venta() {
+        
+        
+        
+    }
+
+    
+    
+    
 }

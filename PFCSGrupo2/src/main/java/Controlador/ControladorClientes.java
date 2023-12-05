@@ -3,7 +3,7 @@ package Controlador;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GestionClientes {
+public class ControladorClientes {
 
     ConexionBD conexion = new ConexionBD();
     ResultSet resultado = null;

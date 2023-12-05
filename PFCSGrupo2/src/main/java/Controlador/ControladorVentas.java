@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Venta;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class ControladorVentas {
 
@@ -14,7 +15,6 @@ public class ControladorVentas {
 //        Venta objetoTemporal = new Venta(empleado, cliente, producto);
 //        return objetoTemporal;
 //    }
-
     public static void consultarVentasCompletos() {
 
         try {
@@ -23,7 +23,8 @@ public class ControladorVentas {
             conexion.setConsulta("Select id,id_empleado,id_cliente,id_producto from ventas");
 
             resultado = conexion.getResultado();
-
+            String printResultado ="";
+            
             while (resultado.next()) {
 
                 int id = resultado.getInt("id");
@@ -31,8 +32,12 @@ public class ControladorVentas {
                 String id_C = resultado.getNString("id_cliente");
                 String id_P = resultado.getNString("id_producto");
 
-                System.out.println("\nID:" + id + "\nEmpleado:" + id_E + "\nCliente:" + id_C + "\nProductos:" + id_P + "\n----------------");
+                printResultado += ("\nID:" + id + "\nEmpleado:" + id_E + "\nCliente:" + id_C + "\nProductos:" + id_P + "\n----------------");
+
             }
+
+            JOptionPane.showMessageDialog(null, printResultado);
+
             conexion.cerrarConexion();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,14 +86,13 @@ public class ControladorVentas {
 //            e.printStackTrace();
 //        }
 //    }
-
-    public void eliminarVenta(Venta ventaObjeto) { //listo
+    public static void eliminarVenta(int ventaObjeto) { //listo
 
         try {
 
             conexion.setConexion();
 
-            conexion.setConsulta("Delete from ventas where id = " + ventaObjeto.getId());
+            conexion.setConsulta("Delete from ventas where id = " + ventaObjeto);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.print("Venta Eliminada");
