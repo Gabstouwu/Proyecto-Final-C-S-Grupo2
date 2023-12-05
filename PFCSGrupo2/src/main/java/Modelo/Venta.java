@@ -39,11 +39,11 @@ public class Venta {
         this.id_producto = id_producto;
     }
 
-    public Venta(int id, String empleado, String cliente, String producto) {
+    public Venta(String empleado, String cliente, String producto) {
         id_empleado = empleado;
         id_cliente = cliente;
         id_producto = producto;
-        this.id = id;
+        //this.id = 0; //Esto será sobreescrito en la BD
     }
 
     @Override

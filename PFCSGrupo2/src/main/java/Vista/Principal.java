@@ -2,7 +2,8 @@ package Vista;
 
 import Controlador.GestionClientes;
 import Controlador.GestionProductos;
-import Controlador.GestionVentas;
+import Controlador.ControladorVentas;
+import Modelo.Venta;
 
 /**
  *
@@ -38,10 +39,10 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        VentaBoton = new javax.swing.JMenu();
+        crearVentaBoton = new javax.swing.JMenuItem();
+        verVentaBoton = new javax.swing.JMenuItem();
+        eliminarVentaBoton = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,33 +129,33 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(JBProductos);
 
-        jMenu1.setText("Ventas");
+        VentaBoton.setText("Ventas");
 
-        jMenuItem4.setText("Crear venta");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        crearVentaBoton.setText("Crear venta");
+        crearVentaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                crearVentaBotonActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        VentaBoton.add(crearVentaBoton);
 
-        jMenuItem5.setText("Ver ventas");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        verVentaBoton.setText("Ver ventas");
+        verVentaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                verVentaBotonActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        VentaBoton.add(verVentaBoton);
 
-        jMenuItem6.setText("Eliminar venta");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        eliminarVentaBoton.setText("Eliminar venta");
+        eliminarVentaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                eliminarVentaBotonActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        VentaBoton.add(eliminarVentaBoton);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(VentaBoton);
 
         setJMenuBar(jMenuBar1);
 
@@ -221,17 +222,20 @@ public class Principal extends javax.swing.JFrame {
         eliminar.show();
     }//GEN-LAST:event_MIEliminarUsuarioActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarVentaBotonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_eliminarVentaBotonActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
+        Venta nuevaVenta = CreacionVentaView.crearVentaView();
+        ControladorVentas.insertarVenta(nuevaVenta);
+        
+    }//GEN-LAST:event_crearVentaBotonActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        GestionVentas gestionVentas = new GestionVentas();
-        gestionVentas.consultarVentasCompletos();}//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void verVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verVentaBotonActionPerformed
+        ControladorVentas gestionVentas = new ControladorVentas();
+        gestionVentas.consultarVentasCompletos();       
+    }//GEN-LAST:event_verVentaBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,13 +281,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MIEliminarUsuario;
     private javax.swing.JMenuItem MIMostrarUsuario;
     private javax.swing.JMenuItem MIRegistroUsuario;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu VentaBoton;
+    private javax.swing.JMenuItem crearVentaBoton;
+    private javax.swing.JMenuItem eliminarVentaBoton;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem verVentaBoton;
     // End of variables declaration//GEN-END:variables
 }

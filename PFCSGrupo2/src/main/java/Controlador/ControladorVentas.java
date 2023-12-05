@@ -4,34 +4,34 @@ import Modelo.Venta;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GestionVentas {
+public class ControladorVentas {
 
-    ConexionBD conexion = new ConexionBD();
-    ResultSet resultado = null;
+    public static ConexionBD conexion = new ConexionBD();
+    public static ResultSet resultado = null;
 
-    public Venta crearVenta(int id, String empleado, String cliente, String producto) {
+//    public static Venta crearObjetoVenta(String empleado, String cliente, String producto) {
+//
+//        Venta objetoTemporal = new Venta(empleado, cliente, producto);
+//        return objetoTemporal;
+//    }
 
-        Venta objetoTemporal = new Venta(id, empleado, cliente, producto);
-        return objetoTemporal;
-    }
-
-    public void consultarVentasCompletos() {
+    public static void consultarVentasCompletos() {
 
         try {
             conexion.setConexion();
 
-            conexion.setConsulta("Select id, id_empleado,id_cliente, id_producto from ventas");
+            conexion.setConsulta("Select id,id_empleado,id_cliente,id_producto from ventas");
 
             resultado = conexion.getResultado();
 
             while (resultado.next()) {
 
                 int id = resultado.getInt("id");
-                String id_E = resultado.getNString("Id Empleado");
-                String id_C = resultado.getNString("Id Cliente");
-                String id_P = resultado.getNString("Id Producto");
+                String id_E = resultado.getNString("id_empleado");
+                String id_C = resultado.getNString("id_cliente");
+                String id_P = resultado.getNString("id_producto");
 
-                System.out.println("ID " + id + "Empleado " + id_E + "Cliente" + id_C + "Productos " + id_P);
+                System.out.println("\nID:" + id + "\nEmpleado:" + id_E + "\nCliente:" + id_C + "\nProductos:" + id_P + "\n----------------");
             }
             conexion.cerrarConexion();
         } catch (SQLException e) {
@@ -39,13 +39,13 @@ public class GestionVentas {
         }
     }
 
-    public void insertarVenta(Venta ventaObjeto) { //listo
+    public static void insertarVenta(Venta ventaObjeto) { //listo
 
         try {
 
             conexion.setConexion();
 
-            conexion.setConsulta("INSERT INTO ventas (nombre_producto,id_producto) VALUES (?,?,?)");
+            conexion.setConsulta("INSERT INTO ventas (id_empleado,id_cliente,id_producto) VALUES (?,?,?)");
             conexion.getConsulta().setString(1, ventaObjeto.getId_empleado());
             conexion.getConsulta().setString(2, ventaObjeto.getId_cliente());
             conexion.getConsulta().setString(3, ventaObjeto.getId_producto());
