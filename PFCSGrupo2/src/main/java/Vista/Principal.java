@@ -4,6 +4,7 @@ import Controlador.GestionClientes;
 import Controlador.GestionProductos;
 import Controlador.ControladorVentas;
 import Modelo.Venta;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -175,8 +176,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void MIRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRegistroUsuarioActionPerformed
         // TODO add your handling code here:
-        GestionClientes gestionClientes = new GestionClientes();
-        gestionClientes.insertarCliente("Sara Hidalgo", "83125687", "sara@example.com", "12-03-1986", "sara12");
+        
+    
+    String nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
+    String telefono = JOptionPane.showInputDialog("Ingrese el teléfono: ");
+    String email = JOptionPane.showInputDialog("Ingrese el email: ");
+    String fechaNacimiento = JOptionPane.showInputDialog("Ingrese la fecha de nacimiento: ");
+    String password = JOptionPane.showInputDialog("Ingrese la contraseña: ");
+
+    GestionClientes gestionClientes = new GestionClientes();
+    gestionClientes.insertarCliente(nombre, telefono, email, fechaNacimiento, password);
+
+    System.out.println("Usuario registrado correctamente");
+
     }//GEN-LAST:event_MIRegistroUsuarioActionPerformed
 
     private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
@@ -204,8 +216,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void MIEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEditarUsuarioActionPerformed
         // TODO add your handling code here:
-        GestionClientes gestionClientes = new GestionClientes();
-        gestionClientes.actualizarCliente("1", "Jose Luis Castro", "033");
+          int resultado = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas editar este usuario?", "Editar Usuario", JOptionPane.YES_NO_OPTION);
+
+    // Si el usuario elige "Sí" en el mensaje de confirmación
+    if (resultado == JOptionPane.YES_OPTION) {
+        // Código para editar el usuario
+        // ...
+        // Imprimir mensaje de confirmación
+        System.out.println("Usuario editado correctamente");
+    }
+
     }//GEN-LAST:event_MIEditarUsuarioActionPerformed
 
     private void MIMostrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMostrarUsuarioActionPerformed
