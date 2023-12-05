@@ -1,8 +1,8 @@
 
 package Vista;
 
-import Controlador.GestionClientes;
-import Controlador.GestionProductos;
+import Controlador.ControladorClientes;
+import Controlador.ControladorProductos;
 import Controlador.ControladorVentas;
 import Modelo.Venta;
 import javax.swing.JOptionPane;
@@ -185,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
     String fechaNacimiento = JOptionPane.showInputDialog("Ingrese la fecha de nacimiento: ");
     String password = JOptionPane.showInputDialog("Ingrese la contraseña: ");
 
-    GestionClientes gestionClientes = new GestionClientes();
+    ControladorClientes gestionClientes = new ControladorClientes();
     gestionClientes.insertarCliente(nombre, telefono, email, fechaNacimiento, password);
 
     System.out.println("Usuario registrado correctamente");
@@ -194,23 +194,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
         // TODO add your handling code here:
-        GestionProductos gestionProductos = new GestionProductos();
+        ControladorProductos gestionProductos = new ControladorProductos();
         gestionProductos.consultarProductosCompletos();
 
     }//GEN-LAST:event_JMIMostrarProductosActionPerformed
 
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        GestionProductos gestionProductos = new GestionProductos();
+        ControladorProductos gestionProductos = new ControladorProductos();
         gestionProductos.insertarProducto("huevo","002");    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        GestionProductos gestionProductos = new GestionProductos();
+        ControladorProductos gestionProductos = new ControladorProductos();
         gestionProductos.actualizarProducto("2","Leche","022");     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 
-        GestionProductos gestionProductos = new GestionProductos();
+        ControladorProductos gestionProductos = new ControladorProductos();
         gestionProductos.eliminarProducto(6);
 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -230,19 +230,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_MIEditarUsuarioActionPerformed
 
     private void MIMostrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMostrarUsuarioActionPerformed
-        GestionClientes gestionClientes = new GestionClientes();
+        ControladorClientes gestionClientes = new ControladorClientes();
         gestionClientes.consultarClientesCompletos();
     }//GEN-LAST:event_MIMostrarUsuarioActionPerformed
 
     private void MIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEliminarUsuarioActionPerformed
         // TODO add your handling code here:
-       GestionClientes gestionClientes = new GestionClientes();
+       ControladorClientes gestionClientes = new ControladorClientes();
         gestionClientes.eliminarCliente(1);
     }//GEN-LAST:event_MIEliminarUsuarioActionPerformed
 
     private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarVentaBotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarVentaBotonActionPerformed
+        int eliminarVenta = ControladorView.eliminarVentaView();
+        ControladorVentas.eliminarVenta(eliminarVenta);    }//GEN-LAST:event_eliminarVentaBotonActionPerformed    }//GEN-LAST:event_eliminarVentaBotonActionPerformed
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
         Venta nuevaVenta = CreacionVentaView.crearVentaView();
