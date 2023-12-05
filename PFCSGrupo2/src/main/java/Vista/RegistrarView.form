@@ -79,6 +79,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="InputNombre">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputNombreActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -86,8 +89,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="InputTelefono">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputTelefonoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="InputCorreo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputCorreoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -100,6 +109,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="InputFecha">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputFechaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -107,11 +119,17 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="InputContrasena">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputContrasenaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BotonRegistrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonRegistrarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

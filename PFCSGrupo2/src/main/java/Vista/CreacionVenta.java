@@ -68,6 +68,12 @@ public class CreacionVenta extends javax.swing.JPanel {
             }
         });
 
+        clientenombreinput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientenombreinputActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -121,6 +127,10 @@ public class CreacionVenta extends javax.swing.JPanel {
     private void empleadoidinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadoidinputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_empleadoidinputActionPerformed
+
+    private void clientenombreinputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientenombreinputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientenombreinputActionPerformed
 
     public JTextField getjTextField1() {
         return empleadoidinput;

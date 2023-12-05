@@ -13,7 +13,6 @@ public class CreacionVentaView {
         Venta ventaNueva = nuevaVenta.crearObjetoVenta();
         System.out.println(ventaNueva.toString());
         return ventaNueva;
-    }
-    
-    
+ }
+
 }

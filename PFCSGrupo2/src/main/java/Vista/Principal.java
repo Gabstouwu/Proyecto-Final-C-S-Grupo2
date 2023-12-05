@@ -179,14 +179,9 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     
-    String nombre = JOptionPane.showInputDialog("Ingrese el nombre: ");
-    String telefono = JOptionPane.showInputDialog("Ingrese el teléfono: ");
-    String email = JOptionPane.showInputDialog("Ingrese el email: ");
-    String fechaNacimiento = JOptionPane.showInputDialog("Ingrese la fecha de nacimiento: ");
-    String password = JOptionPane.showInputDialog("Ingrese la contraseña: ");
 
     ControladorClientes gestionClientes = new ControladorClientes();
-    gestionClientes.insertarCliente(nombre, telefono, email, fechaNacimiento, password);
+//    gestionClientes.insertarCliente(crearC);
 
     System.out.println("Usuario registrado correctamente");
 

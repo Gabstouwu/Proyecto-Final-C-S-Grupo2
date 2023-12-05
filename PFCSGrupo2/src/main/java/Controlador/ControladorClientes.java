@@ -1,5 +1,5 @@
 package Controlador;
-
+import Modelo.Cliente;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -36,18 +36,18 @@ public class ControladorClientes {
         }
     }
 
-    public void insertarCliente(String nombre, String telefono, String correo, String fecha, String contraseña) {
+    public void insertarCliente(Cliente a) {
 
         try {
 
             conexion.setConexion();
 
             conexion.setConsulta("INSERT INTO clientes (nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña) VALUES (?,?,?,?,?) ");
-            conexion.getConsulta().setString(1, nombre);
-            conexion.getConsulta().setString(2, telefono);
-            conexion.getConsulta().setString(3, correo);
-            conexion.getConsulta().setString(4, fecha);
-            conexion.getConsulta().setString(5, contraseña);
+            conexion.getConsulta().setString(1, a.getNombre_cliente());
+            conexion.getConsulta().setString(2, a.getTelefono_cliente());
+            conexion.getConsulta().setString(3, a.getCorreo_cliente());
+            conexion.getConsulta().setString(4, a.getFecha_cliente());
+            conexion.getConsulta().setString(5, a.getContraseña_cliente());
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.print("Producto Guardado");
             } else {

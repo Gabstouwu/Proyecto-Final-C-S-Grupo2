@@ -4,6 +4,12 @@
  */
 package Vista;
 
+import Controlador.ControladorClientes;
+import Modelo.Cliente;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author naoal
@@ -40,15 +46,50 @@ public class RegistrarView extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Nombre completo");
 
+        InputNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputNombreActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Telefono");
+
+        InputTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputTelefonoActionPerformed(evt);
+            }
+        });
+
+        InputCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputCorreoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Correo electronico");
 
         jLabel4.setText("Fecha de nacimiento");
 
+        InputFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputFechaActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Contraseña");
 
+        InputContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputContrasenaActionPerformed(evt);
+            }
+        });
+
         BotonRegistrar.setText("Registrar");
+        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,6 +144,65 @@ public class RegistrarView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonRegistrarActionPerformed
+
+    private void InputNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputNombreActionPerformed
+
+    private void InputTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputTelefonoActionPerformed
+
+    private void InputCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputCorreoActionPerformed
+
+    private void InputFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputFechaActionPerformed
+
+    private void InputContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputContrasenaActionPerformed
+
+    public JButton getBotonRegistrar() {
+        return BotonRegistrar;
+    }
+
+    public JPasswordField getInputContrasena() {
+        return InputContrasena;
+    }
+
+    public JTextField getInputCorreo() {
+        return InputCorreo;
+    }
+
+    public JTextField getInputFecha() {
+        return InputFecha;
+    }
+
+    public JTextField getInputNombre() {
+        return InputNombre;
+    }
+
+    public JTextField getInputTelefono() {
+        return InputTelefono;
+    }
+
+    public Cliente crearObjetoCliente() {
+        String contrasena = this.InputContrasena.getText();
+        String correo = this.InputCorreo.getText();
+        String fecha = this.InputFecha.getText();
+        String nombre = this.InputNombre.getText(); 
+        String telefono = this.InputTelefono.getText();
+        Cliente nuevoCliente = new Cliente(nombre, telefono, correo, fecha, contrasena);
+        return nuevoCliente;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonRegistrar;
