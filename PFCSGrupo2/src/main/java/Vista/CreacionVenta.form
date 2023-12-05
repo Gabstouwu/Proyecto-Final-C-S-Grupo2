@@ -59,6 +59,7 @@
                       <Component id="jLabel4" max="32767" attributes="0"/>
                       <Component id="jLabel3" pref="157" max="32767" attributes="0"/>
                       <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+                      <Component id="CantidadCompra" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -73,7 +74,9 @@
                   <Component id="jLabel3" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="139" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="CantidadCompra" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace pref="88" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -94,6 +97,11 @@
             <Property name="text" type="java.lang.String" value="ID del producto"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="CantidadCompra">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cantidad del producto "/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -101,12 +109,13 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="empleadoidinput" pref="201" max="32767" attributes="0"/>
                       <Component id="clientenombreinput" alignment="0" max="32767" attributes="0"/>
                       <Component id="productoidinput" alignment="0" max="32767" attributes="0"/>
+                      <Component id="inputCantidad" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -121,6 +130,8 @@
                   <Component id="clientenombreinput" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="productoidinput" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="inputCantidad" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -138,6 +149,8 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="productoidinput">
+        </Component>
+        <Component class="javax.swing.JTextField" name="inputCantidad">
         </Component>
       </SubComponents>
     </Container>

@@ -26,10 +26,12 @@ public class CreacionVenta extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        CantidadCompra = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         empleadoidinput = new javax.swing.JTextField();
         clientenombreinput = new javax.swing.JTextField();
         productoidinput = new javax.swing.JTextField();
+        inputCantidad = new javax.swing.JTextField();
 
         jLabel1.setText("Nueva Venta");
 
@@ -39,6 +41,8 @@ public class CreacionVenta extends javax.swing.JPanel {
 
         jLabel4.setText("ID del producto");
 
+        CantidadCompra.setText("Cantidad del producto ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -47,7 +51,8 @@ public class CreacionVenta extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CantidadCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -59,7 +64,9 @@ public class CreacionVenta extends javax.swing.JPanel {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(CantidadCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         empleadoidinput.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +90,8 @@ public class CreacionVenta extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(empleadoidinput, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                     .addComponent(clientenombreinput)
-                    .addComponent(productoidinput))
+                    .addComponent(productoidinput)
+                    .addComponent(inputCantidad))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -95,6 +103,8 @@ public class CreacionVenta extends javax.swing.JPanel {
                 .addComponent(clientenombreinput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(productoidinput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(inputCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -147,15 +157,18 @@ public class CreacionVenta extends javax.swing.JPanel {
     public Venta crearObjetoVenta() {
         String empleado = this.empleadoidinput.getText();
         String cliente = this.clientenombreinput.getText();
-        String producto = this.productoidinput.getText();
-        Venta ventaNueva = new Venta(empleado, cliente, producto);
+        int idProducto = Integer.parseInt(this.productoidinput.getText());
+        int cantidad = Integer.parseInt(this.inputCantidad.getText());
+        Venta ventaNueva = new Venta(idProducto,empleado,cliente,cantidad);
         return ventaNueva;
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CantidadCompra;
     private javax.swing.JTextField clientenombreinput;
     private javax.swing.JTextField empleadoidinput;
+    private javax.swing.JTextField inputCantidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
