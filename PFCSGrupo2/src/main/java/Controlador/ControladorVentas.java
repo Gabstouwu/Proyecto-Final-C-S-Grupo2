@@ -23,8 +23,8 @@ public class ControladorVentas {
             conexion.setConsulta("Select id,id_empleado,id_cliente,id_producto from ventas");
 
             resultado = conexion.getResultado();
-            String printResultado ="";
-            
+            String printResultado = "";
+
             while (resultado.next()) {
 
                 int id = resultado.getInt("id");
@@ -50,10 +50,13 @@ public class ControladorVentas {
 
             conexion.setConexion();
 
-            conexion.setConsulta("INSERT INTO ventas (id_empleado,id_cliente,id_producto) VALUES (?,?,?)");
+            conexion.setConsulta("INSERT INTO ventas (id_empleado,id_cliente,id_producto,cantidad_producto) VALUES (?,?,?,?)");
             conexion.getConsulta().setString(1, ventaObjeto.getId_empleado());
             conexion.getConsulta().setString(2, ventaObjeto.getId_cliente());
-            conexion.getConsulta().setString(3, ventaObjeto.getId_producto());
+            conexion.getConsulta().setString(3, String.valueOf(ventaObjeto.getId()));
+            conexion.getConsulta().setString(4, String.valueOf(ventaObjeto.getId_producto()));
+            
+            //conexion.getConsulta().setString(4, ventaObjeto.toString());
 
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.print("Ventas guardada");
@@ -104,7 +107,6 @@ public class ControladorVentas {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
 }
