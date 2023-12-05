@@ -25,20 +25,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIEditarUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MIMostrarUsuario">
+            <MenuItem class="javax.swing.JMenuItem" name="MostrarInfoClientes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar informaci&#xf3;n clientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIMostrarUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarInfoClientesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MIEliminarUsuario">
+            <MenuItem class="javax.swing.JMenuItem" name="EliminarCliente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIEliminarUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarClienteActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

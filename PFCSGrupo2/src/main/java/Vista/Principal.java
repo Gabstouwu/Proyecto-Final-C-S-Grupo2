@@ -34,8 +34,8 @@ public class Principal extends javax.swing.JFrame {
         MBUsuarios = new javax.swing.JMenu();
         MIRegistroUsuario = new javax.swing.JMenuItem();
         MIEditarUsuario = new javax.swing.JMenuItem();
-        MIMostrarUsuario = new javax.swing.JMenuItem();
-        MIEliminarUsuario = new javax.swing.JMenuItem();
+        MostrarInfoClientes = new javax.swing.JMenuItem();
+        EliminarCliente = new javax.swing.JMenuItem();
         JBProductos = new javax.swing.JMenu();
         JMIMostrarProductos = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -77,21 +77,21 @@ public class Principal extends javax.swing.JFrame {
         });
         MBUsuarios.add(MIEditarUsuario);
 
-        MIMostrarUsuario.setText("Mostrar información clientes");
-        MIMostrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        MostrarInfoClientes.setText("Mostrar información clientes");
+        MostrarInfoClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MIMostrarUsuarioActionPerformed(evt);
+                MostrarInfoClientesActionPerformed(evt);
             }
         });
-        MBUsuarios.add(MIMostrarUsuario);
+        MBUsuarios.add(MostrarInfoClientes);
 
-        MIEliminarUsuario.setText("Eliminar Cliente");
-        MIEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        EliminarCliente.setText("Eliminar Cliente");
+        EliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MIEliminarUsuarioActionPerformed(evt);
+                EliminarClienteActionPerformed(evt);
             }
         });
-        MBUsuarios.add(MIEliminarUsuario);
+        MBUsuarios.add(EliminarCliente);
 
         jMenuBar1.add(MBUsuarios);
 
@@ -229,20 +229,19 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_MIEditarUsuarioActionPerformed
 
-    private void MIMostrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIMostrarUsuarioActionPerformed
+    private void MostrarInfoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoClientesActionPerformed
         ControladorClientes gestionClientes = new ControladorClientes();
         gestionClientes.consultarClientesCompletos();
-    }//GEN-LAST:event_MIMostrarUsuarioActionPerformed
+    }//GEN-LAST:event_MostrarInfoClientesActionPerformed
 
-    private void MIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEliminarUsuarioActionPerformed
-        // TODO add your handling code here:
-       ControladorClientes gestionClientes = new ControladorClientes();
-        gestionClientes.eliminarCliente(1);
-    }//GEN-LAST:event_MIEliminarUsuarioActionPerformed
+    private void EliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClienteActionPerformed
+       int eliminarCliente = ControladorView.eliminarCliente();
+       ControladorClientes.eliminarCliente(eliminarCliente);
+    }//GEN-LAST:event_EliminarClienteActionPerformed
 
-    private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarVentaBotonActionPerformed
+    private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         int eliminarVenta = ControladorView.eliminarVentaView();
-        ControladorVentas.eliminarVenta(eliminarVenta);    }//GEN-LAST:event_eliminarVentaBotonActionPerformed    }//GEN-LAST:event_eliminarVentaBotonActionPerformed
+        ControladorVentas.eliminarVenta(eliminarVenta);    }                                                                                                         
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
         Venta nuevaVenta = CreacionVentaView.crearVentaView();
@@ -291,14 +290,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem EliminarCliente;
     private javax.swing.JMenu JBProductos;
     private javax.swing.JDesktopPane JDPEscritorio;
     private javax.swing.JMenuItem JMIMostrarProductos;
     private javax.swing.JMenu MBUsuarios;
     private javax.swing.JMenuItem MIEditarUsuario;
-    private javax.swing.JMenuItem MIEliminarUsuario;
-    private javax.swing.JMenuItem MIMostrarUsuario;
     private javax.swing.JMenuItem MIRegistroUsuario;
+    private javax.swing.JMenuItem MostrarInfoClientes;
     private javax.swing.JMenu VentaBoton;
     private javax.swing.JMenuItem crearVentaBoton;
     private javax.swing.JMenuItem eliminarVentaBoton;

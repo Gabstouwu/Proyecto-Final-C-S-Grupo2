@@ -19,10 +19,22 @@ public class ControladorView {
 
         JOptionPane.showMessageDialog(null, anularVenta);
         int ventaAnulada = anularVenta.crearObjetoElimina();
-        
+
         System.out.println(ventaAnulada);
-                                 
+
         return ventaAnulada;
     }
 
+    public static int eliminarCliente() {
+        EliminarView anularCliente = new EliminarView();
+        
+        JOptionPane.showMessageDialog(null, anularCliente);
+                
+        int clientAnulo = anularCliente.crearObjetoElimina();
+
+        System.out.println(clientAnulo);
+
+        return clientAnulo; 
+
+    }
 }

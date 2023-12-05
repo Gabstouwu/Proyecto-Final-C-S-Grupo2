@@ -22,23 +22,17 @@ public class EliminarView extends javax.swing.JPanel {
     private void initComponents() {
 
         InputUsario = new javax.swing.JTextField();
-        EliminarBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         InputUsario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        InputUsario.setText("Dijite el id de la venta que desea eliminar");
         InputUsario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputUsarioActionPerformed(evt);
             }
         });
 
-        EliminarBoton.setText("Eliminar");
-        EliminarBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarBotonActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Dijite el ID a Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -50,11 +44,11 @@ public class EliminarView extends javax.swing.JPanel {
                         .addGap(167, 167, 167)
                         .addComponent(InputUsario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(EliminarBoton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(293, 293, 293)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel2)))
                 .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -62,29 +56,25 @@ public class EliminarView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jLabel1)
-                .addGap(133, 133, 133)
+                .addGap(121, 121, 121)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(InputUsario, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(EliminarBoton)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void InputUsarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputUsarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InputUsarioActionPerformed
-
-    private void EliminarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EliminarBotonActionPerformed
     public int crearObjetoElimina() {
         int idVenta = Integer.parseInt(this.InputUsario.getText());
         return idVenta;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EliminarBoton;
     private javax.swing.JTextField InputUsario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,38 +2,41 @@ package Controlador;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class ControladorClientes {
 
-    ConexionBD conexion = new ConexionBD();
-    ResultSet resultado = null;
+    public static ConexionBD conexion = new ConexionBD();
+    public static ResultSet resultado = null;
 
-    public void consultarClientesCompletos() {
+    public static void consultarClientesCompletos() {
 
         try {
             conexion.setConexion();
 
-            conexion.setConsulta("Select id,nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente from clientes");
+            conexion.setConsulta("Select id,nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña_cliente from clientes");
 
             resultado = conexion.getResultado();
-
+            String printResultado = "";
             while (resultado.next()) {
 
                 int id = resultado.getInt("id");
-                String nombre = resultado.getString("nombre_cliente");
+                String nombre = resultado.getNString("nombre_cliente");
                 String telefono = resultado.getNString("telefono_cliente");
                 String correo = resultado.getNString("correo_cliente");
                 String fecha = resultado.getNString("fecha_cliente");
-
-                System.out.println("\n ID del cliente:" + id + "\n Nombre del cliente:" + nombre + "\n Telefono:" + telefono + "\n Correo:" + correo + "\n Fecha de nacimiento:" + fecha + "\n----------------");
+                String contrasena = resultado.getNString("contraseña_cliente");
+                printResultado += ("\n ID del cliente:" + id + "\n Nombre del cliente:" + nombre + "\n Telefono:" + telefono + "\n Correo:" + correo + "\n Fecha de nacimiento:" + fecha + "\n----------------");
             }
+            JOptionPane.showMessageDialog(null, printResultado);
+
             conexion.cerrarConexion();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void insertarCliente( String nombre,  String telefono, String correo, String fecha, String contraseña) {
+    public void insertarCliente(String nombre, String telefono, String correo, String fecha, String contraseña) {
 
         try {
 
@@ -77,7 +80,7 @@ public class ControladorClientes {
         }
     }
 
-    public void eliminarCliente(int id) {
+    public static void eliminarCliente(int id) {
 
         try {
 
