@@ -20,7 +20,7 @@ public class ControladorVentas {
         try {
             conexion.setConexion();
 
-            conexion.setConsulta("Select id,id_empleado,id_cliente,id_producto from ventas");
+            conexion.setConsulta("Select id,id_empleado,id_cliente,id_producto,cantidad_producto from ventas");
 
             resultado = conexion.getResultado();
             String printResultado = "";
@@ -30,9 +30,9 @@ public class ControladorVentas {
                 int id = resultado.getInt("id");
                 String id_E = resultado.getNString("id_empleado");
                 String id_C = resultado.getNString("id_cliente");
-                String id_P = resultado.getNString("id_producto");
+                String id_Ca = resultado.getNString("id_producto");
 
-                printResultado += ("\nID:" + id + "\nEmpleado:" + id_E + "\nCliente:" + id_C + "\nProductos:" + id_P + "\n----------------");
+                printResultado += ("\nID:" + id + "\nEmpleado:" + id_E + "\nCliente:" + id_C + "\nCantidad Productos:" + id_Ca + "\n----------------");
 
             }
 
@@ -70,25 +70,28 @@ public class ControladorVentas {
         }
     }
 
-//    public void actualizarVenta(String columnaAModificar, Venta ventaObjeto, String dato) {
-//        //                (String columnaAModificar, String dato, String id)
-//        try {
-//
-//            conexion.setConexion();
-//
-//            conexion.setConsulta("Update ventas set" + columnaAModificar + "=" + dato + "where id" + ventaObjeto.getId());
-//
-//            if (conexion.getConsulta().executeUpdate() > 0) {
-//                System.out.print("Venta Modificada");
-//            } else {
-//
-//                System.out.print("Falla combio de la venta");
-//            }
-//            conexion.cerrarConexion();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void actualizarProfesor(String lugarModificar, String dato, String id) {
+        //                (String columnaAModificar, String dato, String id)
+        try {
+
+            conexion.setConexion();
+
+            conexion.setConsulta("Update profesor set" + lugarModificar + "=" + dato + "where id" + id);
+
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.print("Dato Modificado");
+            } else {
+
+                System.out.print("Fallo al tratar de cambiar el dato");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
     public static void eliminarVenta(int ventaObjeto) { //listo
 
         try {

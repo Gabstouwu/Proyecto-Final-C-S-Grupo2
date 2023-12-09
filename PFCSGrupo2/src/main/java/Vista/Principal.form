@@ -82,7 +82,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="VentaBoton">
+        <Menu class="javax.swing.JMenu" name="EliminarVenta">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ventas"/>
           </Properties>

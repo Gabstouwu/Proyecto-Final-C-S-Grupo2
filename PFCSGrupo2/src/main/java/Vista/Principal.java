@@ -1,9 +1,9 @@
-
 package Vista;
 
 import Controlador.ControladorClientes;
 import Controlador.ControladorProductos;
 import Controlador.ControladorVentas;
+import Modelo.Cliente;
 import Modelo.Venta;
 import javax.swing.JOptionPane;
 
@@ -41,7 +41,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        VentaBoton = new javax.swing.JMenu();
+        EliminarVenta = new javax.swing.JMenu();
         crearVentaBoton = new javax.swing.JMenuItem();
         verVentaBoton = new javax.swing.JMenuItem();
         eliminarVentaBoton = new javax.swing.JMenuItem();
@@ -131,7 +131,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(JBProductos);
 
-        VentaBoton.setText("Ventas");
+        EliminarVenta.setText("Ventas");
 
         crearVentaBoton.setText("Crear venta");
         crearVentaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +139,7 @@ public class Principal extends javax.swing.JFrame {
                 crearVentaBotonActionPerformed(evt);
             }
         });
-        VentaBoton.add(crearVentaBoton);
+        EliminarVenta.add(crearVentaBoton);
 
         verVentaBoton.setText("Ver ventas");
         verVentaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +147,7 @@ public class Principal extends javax.swing.JFrame {
                 verVentaBotonActionPerformed(evt);
             }
         });
-        VentaBoton.add(verVentaBoton);
+        EliminarVenta.add(verVentaBoton);
 
         eliminarVentaBoton.setText("Eliminar venta");
         eliminarVentaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,9 +155,9 @@ public class Principal extends javax.swing.JFrame {
                 eliminarVentaBotonActionPerformed(evt);
             }
         });
-        VentaBoton.add(eliminarVentaBoton);
+        EliminarVenta.add(eliminarVentaBoton);
 
-        jMenuBar1.add(VentaBoton);
+        jMenuBar1.add(EliminarVenta);
 
         setJMenuBar(jMenuBar1);
 
@@ -176,14 +176,12 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MIRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRegistroUsuarioActionPerformed
-        // TODO add your handling code here:
-        
-    
+//        Venta nuevaVenta = CreacionVentaView.crearVentaView();
+//
+//        Cliente gestionClientes = RegistroClientesView.;
+//        gestionClientes.;
 
-    ControladorClientes gestionClientes = new ControladorClientes();
-//    gestionClientes.insertarCliente(crearC);
-
-    System.out.println("Usuario registrado correctamente");
+        System.out.println("Usuario registrado correctamente");
 
     }//GEN-LAST:event_MIRegistroUsuarioActionPerformed
 
@@ -212,15 +210,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void MIEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEditarUsuarioActionPerformed
         // TODO add your handling code here:
-          int resultado = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas editar este usuario?", "Editar Usuario", JOptionPane.YES_NO_OPTION);
+        int resultado = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas editar este usuario?", "Editar Usuario", JOptionPane.YES_NO_OPTION);
 
-    // Si el usuario elige "Sí" en el mensaje de confirmación
-    if (resultado == JOptionPane.YES_OPTION) {
-        // Código para editar el usuario
-        // ...
-        // Imprimir mensaje de confirmación
-        System.out.println("Usuario editado correctamente");
-    }
+        // Si el usuario elige "Sí" en el mensaje de confirmación
+        if (resultado == JOptionPane.YES_OPTION) {
+            // Código para editar el usuario
+            // ...
+            // Imprimir mensaje de confirmación
+            System.out.println("Usuario editado correctamente");
+        }
 
     }//GEN-LAST:event_MIEditarUsuarioActionPerformed
 
@@ -230,23 +228,24 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_MostrarInfoClientesActionPerformed
 
     private void EliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClienteActionPerformed
-       int eliminarCliente = ControladorView.eliminarCliente();
-       ControladorClientes.eliminarCliente(eliminarCliente);
+        int eliminarCliente = ControladorView.eliminarCliente();
+        ControladorClientes.eliminarCliente(eliminarCliente);
     }//GEN-LAST:event_EliminarClienteActionPerformed
 
-    private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {
         int eliminarVenta = ControladorView.eliminarVentaView();
-        ControladorVentas.eliminarVenta(eliminarVenta);    }                                                                                                         
+        ControladorVentas.eliminarVenta(eliminarVenta);
+    }
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
         Venta nuevaVenta = CreacionVentaView.crearVentaView();
         ControladorVentas.insertarVenta(nuevaVenta);
-        
+
     }//GEN-LAST:event_crearVentaBotonActionPerformed
 
     private void verVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verVentaBotonActionPerformed
         ControladorVentas gestionVentas = new ControladorVentas();
-        gestionVentas.consultarVentasCompletos();       
+        gestionVentas.consultarVentasCompletos();
     }//GEN-LAST:event_verVentaBotonActionPerformed
 
     /**
@@ -286,6 +285,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem EliminarCliente;
+    private javax.swing.JMenu EliminarVenta;
     private javax.swing.JMenu JBProductos;
     private javax.swing.JDesktopPane JDPEscritorio;
     private javax.swing.JMenuItem JMIMostrarProductos;
@@ -293,7 +293,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MIEditarUsuario;
     private javax.swing.JMenuItem MIRegistroUsuario;
     private javax.swing.JMenuItem MostrarInfoClientes;
-    private javax.swing.JMenu VentaBoton;
     private javax.swing.JMenuItem crearVentaBoton;
     private javax.swing.JMenuItem eliminarVentaBoton;
     private javax.swing.JMenuBar jMenuBar1;
