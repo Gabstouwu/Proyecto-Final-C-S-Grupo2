@@ -1,14 +1,13 @@
 package Vista;
 
-import Modelo.Venta;
+import Controlador.ControladorVentas;
 
-
-public class EliminarView extends javax.swing.JPanel {
+public class EliminarVentaView extends javax.swing.JPanel {
 
     /**
      * Creates new form Eliminar
      */
-    public EliminarView() {
+    public EliminarVentaView() {
         initComponents();
     }
 
@@ -24,6 +23,7 @@ public class EliminarView extends javax.swing.JPanel {
         InputUsario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        BotonMostrarLista = new javax.swing.JButton();
 
         InputUsario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         InputUsario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -33,47 +33,70 @@ public class EliminarView extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 2, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setFont(new java.awt.Font("Sitka Heading", 2, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Dijite el ID a Eliminar");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        BotonMostrarLista.setText("Ver lista de ID's disponibles");
+        BotonMostrarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonMostrarListaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(293, 293, 293)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(InputUsario, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(36, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonMostrarLista)
+                            .addComponent(InputUsario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(InputUsario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonMostrarLista)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void InputUsarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputUsarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InputUsarioActionPerformed
+
+    private void BotonMostrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMostrarListaActionPerformed
+        ControladorVentas gestionVentas = new ControladorVentas();
+        gestionVentas.consultarVentasCompletos();
+    }//GEN-LAST:event_BotonMostrarListaActionPerformed
+    
+    
     public int crearObjetoElimina() {
         int idVenta = Integer.parseInt(this.InputUsario.getText());
         return idVenta;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonMostrarLista;
     private javax.swing.JTextField InputUsario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

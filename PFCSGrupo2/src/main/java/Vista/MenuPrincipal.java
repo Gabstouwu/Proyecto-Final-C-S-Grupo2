@@ -216,16 +216,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Cliente ECliente = ControladorView.editarCliente();
         ControladorClientes.actualizarCliente(ECliente);
 
-//        int resultado = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas editar este usuario?", "Editar Usuario", JOptionPane.YES_NO_OPTION);
-//
-//        // Si el usuario elige "Sí" en el mensaje de confirmación
-//        if (resultado == JOptionPane.YES_OPTION) {
-//            // Código para editar el usuario
-//            // ...
-//            // Imprimir mensaje de confirmación
-//            System.out.println("Usuario editado correctamente");
-//        }
-
     }//GEN-LAST:event_BotonEditarUsuarioActionPerformed
 
     private void MostrarInfoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoClientesActionPerformed
@@ -240,7 +230,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {
         int eliminarVenta = ControladorView.eliminarVentaView();
-       // ControladorVentas.eliminarVenta(eliminarVenta);
+        ControladorVentas.eliminarVenta(eliminarVenta);
     }
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed

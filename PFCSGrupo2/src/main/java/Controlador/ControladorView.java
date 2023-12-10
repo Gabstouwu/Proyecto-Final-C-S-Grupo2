@@ -8,7 +8,9 @@ import Vista.CreacionProductoView;
 import Vista.CreacionVenta;
 import Vista.EdicionClienteView;
 import Vista.EdicionProductoView;
-import Vista.EliminarView;
+import Vista.EliminarClienteView;
+import Vista.EliminarProductoView;
+import Vista.EliminarVentaView;
 import javax.swing.JOptionPane;
 
 public class ControladorView {
@@ -23,7 +25,7 @@ public class ControladorView {
     }
 
     public static int eliminarVentaView() {
-        EliminarView anularVenta = new EliminarView();
+        EliminarVentaView anularVenta = new EliminarVentaView();
         JOptionPane.showMessageDialog(null, anularVenta);
         int ventaAnulada = anularVenta.crearObjetoElimina();
         System.out.println(ventaAnulada);
@@ -39,7 +41,7 @@ public class ControladorView {
     }
 
     public static int eliminarCliente() {
-        EliminarView anularCliente = new EliminarView();
+        EliminarClienteView anularCliente = new EliminarClienteView();
         JOptionPane.showMessageDialog(null, anularCliente);
         int clientAnulo = anularCliente.crearObjetoElimina();
         System.out.println(clientAnulo);
@@ -71,7 +73,7 @@ public class ControladorView {
     }
 
     public static int eliminarProducto() {
-        EliminarView anularProducto = new EliminarView();
+        EliminarProductoView anularProducto = new EliminarProductoView();
         JOptionPane.showMessageDialog(null, anularProducto);
         int productoNulo = anularProducto.crearObjetoElimina();
         System.out.println(productoNulo);
