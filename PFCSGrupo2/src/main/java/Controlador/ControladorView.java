@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Admin;
 import Modelo.Cliente;
 import Modelo.Producto;
 import Modelo.Venta;
@@ -11,9 +12,17 @@ import Vista.EdicionProductoView;
 import Vista.EliminarClienteView;
 import Vista.EliminarProductoView;
 import Vista.EliminarVentaView;
+import Vista.LoginView;
 import javax.swing.JOptionPane;
 
 public class ControladorView {
+
+    public static Admin InicioDeSesion() {
+        LoginView VentanaLogin = new LoginView();
+        JOptionPane.showMessageDialog(null, VentanaLogin);
+        Admin logIn = VentanaLogin.crearObjetoAdmin();
+        return logIn;
+    }
 
     // static ControladorVentas creacionVenta= new ControladorVentas();
     public static Venta crearVentaView() {

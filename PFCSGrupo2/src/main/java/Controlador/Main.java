@@ -1,9 +1,31 @@
 package Controlador;
 
+import Modelo.Admin;
+import Vista.LoginView;
 import Vista.MenuPrincipal;
+import javax.swing.JOptionPane;
 
 public class Main {
+
     public static void main(String args[]) {
+
+        boolean autorizado = false;
+        Admin temporal;
+        LoginView VentanaLogin = new LoginView();
+
+        while (!autorizado) {
+
+            JOptionPane.showMessageDialog(null, VentanaLogin);
+            temporal = VentanaLogin.crearObjetoAdmin();
+
+            autorizado = ControladorLogIn.verificarCredenciales(temporal);
+            if (!autorizado) {
+                JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
+            } else {
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+            }
+        }
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
