@@ -10,6 +10,29 @@ public class ControladorClientes {
     public static ConexionBaseDeDatos conexion = new ConexionBaseDeDatos();
     public static ResultSet resultado = null;
 
+    public static void crearCliente(Cliente a) {
+
+        try {
+            conexion.setConexion();
+
+            conexion.setConsulta("INSERT INTO clientes (nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña_cliente) VALUES (?,?,?,?,?) ");
+            conexion.getConsulta().setString(1, a.getNombre_cliente());
+            conexion.getConsulta().setString(2, a.getTelefono_cliente());
+            conexion.getConsulta().setString(3, a.getCorreo_cliente());
+            conexion.getConsulta().setString(4, a.getFecha_cliente());
+            conexion.getConsulta().setString(5, a.getContraseña_cliente());
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.print("Cliente Guardado");
+            } else {
+                
+                System.out.print("Falla para poder guardar el cliente");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void consultarClientesCompletos() {
 
         try {
@@ -26,8 +49,8 @@ public class ControladorClientes {
                 String telefono = resultado.getNString("telefono_cliente");
                 String correo = resultado.getNString("correo_cliente");
                 String fecha = resultado.getNString("fecha_cliente");
-                String contrasena = resultado.getNString("contraseña_cliente");
-                printResultado += ("\n ID del cliente:" + id + "\n Nombre del cliente:" + nombre + "\n Telefono:" + telefono + "\n Correo:" + correo + "\n Fecha de nacimiento:" + fecha + "\n----------------");
+                //String contrasena = resultado.getNString("contraseña_cliente");
+                printResultado += ("\n ID del cliente: " + id + "\n Nombre del cliente: " + nombre + "\n Telefono: " + telefono + "\n Correo: " + correo + "\n Fecha de nacimiento: " + fecha + "\n----------------");
             }
             JOptionPane.showMessageDialog(null, printResultado);
 
@@ -37,37 +60,11 @@ public class ControladorClientes {
         }
     }
 
-    public static void crearCliente(Cliente a) {
-
-        try {
-
-            conexion.setConexion();
-
-            conexion.setConsulta("INSERT INTO clientes (nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña_cliente) VALUES (?,?,?,?,?) ");
-            conexion.getConsulta().setString(1, a.getNombre_cliente());
-            conexion.getConsulta().setString(2, a.getTelefono_cliente());
-            conexion.getConsulta().setString(3, a.getCorreo_cliente());
-            conexion.getConsulta().setString(4, a.getFecha_cliente());
-            conexion.getConsulta().setString(5, a.getContraseña_cliente());
-            if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Producto Guardado");
-            } else {
-
-                System.out.print("Falla para poder guardar el producto");
-            }
-            conexion.cerrarConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //String datoNombre, String datoTel,String datoCorreo,String datoFecha,String datoContraseña, String idBuscar
     public static void actualizarCliente(Cliente a) {
 
         try {
             conexion.setConexion();
-            //nombre_cliente ,telefono_cliente ,correo_cliente, fecha_cliente ,contraseña_cliente
-            //"UPDATE clientes SET nombre_cliente" + " = " + a.getNombre_cliente() + ", " + "telefono_cliente = " + a.getTelefono_cliente() + ", " + "correo_cliente = " + a.getCorreo_cliente() + ", " + "fecha_cliente = " + a.getFecha_cliente() + ", " + "contraseña_cliente = " + a.getContraseña_cliente() + " WHERE " + a.getId()
+
             conexion.setConsulta("UPDATE clientes SET nombre_cliente = '" + a.getNombre_cliente() + "', "
                     + "telefono_cliente = '" + a.getTelefono_cliente() + "', "
                     + "correo_cliente = '" + a.getCorreo_cliente() + "', "

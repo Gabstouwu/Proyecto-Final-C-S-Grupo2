@@ -1,10 +1,13 @@
 package Controlador;
 
 import Modelo.Cliente;
+import Modelo.Producto;
 import Modelo.Venta;
 import Vista.CreacionClienteView;
+import Vista.CreacionProductoView;
 import Vista.CreacionVenta;
 import Vista.EdicionClienteView;
+import Vista.EdicionProductoView;
 import Vista.EliminarView;
 import javax.swing.JOptionPane;
 
@@ -50,6 +53,28 @@ public class ControladorView {
 
         return nuevoEdicionCliente;
     }
-;
 
+    public static Producto crearProducto() {
+        CreacionProductoView ventanaProducto = new CreacionProductoView(); // nuevo jframe
+        JOptionPane.showMessageDialog(null, ventanaProducto);
+        Producto nuevoProducto = ventanaProducto.crearObjetoProducto();
+        //System.out.println(nuevoCliente.toString());
+        return nuevoProducto;
+    }
+
+    public static Producto editarProducto() {
+        EdicionProductoView VentanaEdicionProducto = new EdicionProductoView();
+        JOptionPane.showMessageDialog(null, VentanaEdicionProducto);
+        Producto nuevoEdicionProducto = VentanaEdicionProducto.editarObjetoProducto();
+
+        return nuevoEdicionProducto;
+    }
+
+    public static int eliminarProducto() {
+        EliminarView anularProducto = new EliminarView();
+        JOptionPane.showMessageDialog(null, anularProducto);
+        int productoNulo = anularProducto.crearObjetoElimina();
+        System.out.println(productoNulo);
+        return productoNulo;
+    }
 }

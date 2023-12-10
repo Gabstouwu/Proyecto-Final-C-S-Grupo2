@@ -190,10 +190,6 @@ public class EdicionClienteView extends javax.swing.JPanel {
         return nuevoCliente;
     }
 
-//    public String idABuscar() {
-//        String id = this.inputID.getText();
-//        return id;
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField InputContrasena;

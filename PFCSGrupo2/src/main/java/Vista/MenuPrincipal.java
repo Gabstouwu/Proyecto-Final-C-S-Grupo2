@@ -5,6 +5,7 @@ import Controlador.ControladorClientes;
 import Controlador.ControladorProductos;
 import Controlador.ControladorVentas;
 import Modelo.Cliente;
+import Modelo.Producto;
 import Modelo.Venta;
 import javax.swing.JOptionPane;
 
@@ -33,15 +34,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JDPEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         MBUsuarios = new javax.swing.JMenu();
+        MostrarInfoClientes = new javax.swing.JMenuItem();
         RegistroNuevoCliente = new javax.swing.JMenuItem();
         BotonEditarUsuario = new javax.swing.JMenuItem();
-        MostrarInfoClientes = new javax.swing.JMenuItem();
         EliminarCliente = new javax.swing.JMenuItem();
         JBProductos = new javax.swing.JMenu();
-        JMIMostrarProductos = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        BotonMostrarProductos = new javax.swing.JMenuItem();
+        BotonAgregarProducto = new javax.swing.JMenuItem();
+        BotonEditarProducto = new javax.swing.JMenuItem();
+        BotonEliminarProducto = new javax.swing.JMenuItem();
         EliminarVenta = new javax.swing.JMenu();
         crearVentaBoton = new javax.swing.JMenuItem();
         verVentaBoton = new javax.swing.JMenuItem();
@@ -62,6 +63,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         MBUsuarios.setText("Clientes");
 
+        MostrarInfoClientes.setText("Mostrar lista completa de clientes");
+        MostrarInfoClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarInfoClientesActionPerformed(evt);
+            }
+        });
+        MBUsuarios.add(MostrarInfoClientes);
+
         RegistroNuevoCliente.setText("Registrar nuevo cliente");
         RegistroNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,14 +87,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         MBUsuarios.add(BotonEditarUsuario);
 
-        MostrarInfoClientes.setText("Mostrar información clientes");
-        MostrarInfoClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MostrarInfoClientesActionPerformed(evt);
-            }
-        });
-        MBUsuarios.add(MostrarInfoClientes);
-
         EliminarCliente.setText("Eliminar Cliente");
         EliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,37 +99,37 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         JBProductos.setText("Productos");
 
-        JMIMostrarProductos.setText("Mostrar Productos");
-        JMIMostrarProductos.addActionListener(new java.awt.event.ActionListener() {
+        BotonMostrarProductos.setText("Mostrar lista completa de productos");
+        BotonMostrarProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMIMostrarProductosActionPerformed(evt);
+                BotonMostrarProductosActionPerformed(evt);
             }
         });
-        JBProductos.add(JMIMostrarProductos);
+        JBProductos.add(BotonMostrarProductos);
 
-        jMenuItem1.setText("Agregar Producto");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        BotonAgregarProducto.setText("Agregar Producto");
+        BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                BotonAgregarProductoActionPerformed(evt);
             }
         });
-        JBProductos.add(jMenuItem1);
+        JBProductos.add(BotonAgregarProducto);
 
-        jMenuItem2.setText("Editar Producto");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        BotonEditarProducto.setText("Editar Producto");
+        BotonEditarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                BotonEditarProductoActionPerformed(evt);
             }
         });
-        JBProductos.add(jMenuItem2);
+        JBProductos.add(BotonEditarProducto);
 
-        jMenuItem3.setText("Eliminar Producto");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        BotonEliminarProducto.setText("Eliminar Producto");
+        BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                BotonEliminarProductoActionPerformed(evt);
             }
         });
-        JBProductos.add(jMenuItem3);
+        JBProductos.add(BotonEliminarProducto);
 
         jMenuBar1.add(JBProductos);
 
@@ -184,31 +185,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_RegistroNuevoClienteActionPerformed
 
-    private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
-        // TODO add your handling code here:
+    private void BotonMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMostrarProductosActionPerformed
+
         ControladorProductos gestionProductos = new ControladorProductos();
         gestionProductos.consultarProductosCompletos();
 
-    }//GEN-LAST:event_JMIMostrarProductosActionPerformed
+    }//GEN-LAST:event_BotonMostrarProductosActionPerformed
 
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ControladorProductos gestionProductos = new ControladorProductos();
-        gestionProductos.insertarProducto("huevo","002");    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
+        Producto nuevoProducto = ControladorView.crearProducto();
+        ControladorProductos.insertarProducto(nuevoProducto);
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ControladorProductos gestionProductos = new ControladorProductos();
-        gestionProductos.actualizarProducto("2","Leche","022");     }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void BotonEditarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEditarProductoActionPerformed
 
-        ControladorProductos gestionProductos = new ControladorProductos();
-        gestionProductos.eliminarProducto(6);
+        Producto EProducto = ControladorView.editarProducto();
+        ControladorProductos.actualizarProductos(EProducto);
+    }//GEN-LAST:event_BotonEditarProductoActionPerformed
 
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void BotonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoActionPerformed
+
+        int eliminarProducto = ControladorView.eliminarProducto();
+        ControladorProductos.eliminarProducto(eliminarProducto);
+    }//GEN-LAST:event_BotonEliminarProductoActionPerformed
 
     private void BotonEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEditarUsuarioActionPerformed
-        
+
         Cliente ECliente = ControladorView.editarCliente();
         ControladorClientes.actualizarCliente(ECliente);
 
@@ -236,12 +240,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void eliminarVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {
         int eliminarVenta = ControladorView.eliminarVentaView();
-        ControladorVentas.eliminarVenta(eliminarVenta);
+       // ControladorVentas.eliminarVenta(eliminarVenta);
     }
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
         Venta nuevaVenta = CreacionVentaView.crearVentaView();
-        ControladorVentas.insertarVenta(nuevaVenta);
+       // ControladorVentas.insertarVenta(nuevaVenta);
 
     }//GEN-LAST:event_crearVentaBotonActionPerformed
 
@@ -252,21 +256,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BotonAgregarProducto;
+    private javax.swing.JMenuItem BotonEditarProducto;
     private javax.swing.JMenuItem BotonEditarUsuario;
+    private javax.swing.JMenuItem BotonEliminarProducto;
+    private javax.swing.JMenuItem BotonMostrarProductos;
     private javax.swing.JMenuItem EliminarCliente;
     private javax.swing.JMenu EliminarVenta;
     private javax.swing.JMenu JBProductos;
     private javax.swing.JDesktopPane JDPEscritorio;
-    private javax.swing.JMenuItem JMIMostrarProductos;
     private javax.swing.JMenu MBUsuarios;
     private javax.swing.JMenuItem MostrarInfoClientes;
     private javax.swing.JMenuItem RegistroNuevoCliente;
     private javax.swing.JMenuItem crearVentaBoton;
     private javax.swing.JMenuItem eliminarVentaBoton;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem verVentaBoton;
     // End of variables declaration//GEN-END:variables
 }

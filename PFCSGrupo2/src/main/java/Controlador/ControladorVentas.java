@@ -19,97 +19,94 @@ public class ControladorVentas {
 
         try {
             conexion.setConexion();
-
-            conexion.setConsulta("Select id,id_empleado,id_cliente,id_producto,cantidad_producto from ventas");
+            conexion.setConsulta("Select id, id_empleado,id_cliente,id_producto,cantidad_producto from ventas");
 
             resultado = conexion.getResultado();
             String printResultado = "";
 
             while (resultado.next()) {
-
                 int id = resultado.getInt("id");
-                String id_E = resultado.getNString("id_empleado");
-                String id_C = resultado.getNString("id_cliente");
-                String id_Ca = resultado.getNString("id_producto");
-
-                printResultado += ("\nID:" + id + "\nEmpleado:" + id_E + "\nCliente:" + id_C + "\nCantidad Productos:" + id_Ca + "\n----------------");
+                String nombre = resultado.getString("id_empleado");
+                String cliente = resultado.getString("id_cliente");
+                String idProducto = resultado.getString("id_producto");
+                String cantidad = resultado.getString("cantidad_producto");
+                printResultado += ("\n ID de la venta : " + id + "\n ID del empleado : " + nombre + "\n Cantidad en que se compro: " + cantidad + "\n Cliente : " + cliente + "\n Id del producto : " + idProducto + "\n----------------");
 
             }
-
             JOptionPane.showMessageDialog(null, printResultado);
-
             conexion.cerrarConexion();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    public static void insertarVenta(Venta ventaObjeto) { //listo
-
-        try {
-
-            conexion.setConexion();
-
-            conexion.setConsulta("INSERT INTO ventas (id_empleado,id_cliente,id_producto,cantidad_producto) VALUES (?,?,?,?)");
-            conexion.getConsulta().setString(1, ventaObjeto.getId_empleado());
-            conexion.getConsulta().setString(2, ventaObjeto.getId_cliente());
-            conexion.getConsulta().setString(3, String.valueOf(ventaObjeto.getId()));
-            conexion.getConsulta().setString(4, String.valueOf(ventaObjeto.getId_producto()));
-            
-            //conexion.getConsulta().setString(4, ventaObjeto.toString());
-
-            if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Ventas guardada");
-            } else {
-
-                System.out.print("Falla para poder guardar la venta");
-            }
-            conexion.cerrarConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void actualizarProfesor(String lugarModificar, String dato, String id) {
-        //                (String columnaAModificar, String dato, String id)
-        try {
-
-            conexion.setConexion();
-
-            conexion.setConsulta("Update profesor set" + lugarModificar + "=" + dato + "where id" + id);
-
-            if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Dato Modificado");
-            } else {
-
-                System.out.print("Fallo al tratar de cambiar el dato");
-            }
-            conexion.cerrarConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    
-    
-    public static void eliminarVenta(int ventaObjeto) { //listo
-
-        try {
-
-            conexion.setConexion();
-
-            conexion.setConsulta("Delete from ventas where id = " + ventaObjeto);
-
-            if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Venta Eliminada");
-            } else {
-
-                System.out.print("Falla al eliminar la venta");
-            }
-            conexion.cerrarConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
+
+//public static void insertarVenta(Venta ventaObjeto) { //listo
+//
+//        try {
+//
+//            conexion.setConexion();
+//
+//            conexion.setConsulta("INSERT INTO ventas (id_empleado,id_cliente,id_producto,cantidad_producto) VALUES (?,?,?,?)");
+//            conexion.getConsulta().setString(1, ventaObjeto.getId_empleado());
+//            conexion.getConsulta().setString(2, ventaObjeto.getId_cliente());
+//            conexion.getConsulta().setString(3, String.valueOf(ventaObjeto.getId()));
+//            conexion.getConsulta().setString(4, String.valueOf(ventaObjeto.getId_producto()));
+//            
+//            //conexion.getConsulta().setString(4, ventaObjeto.toString());
+//
+//            if (conexion.getConsulta().executeUpdate() > 0) {
+//                System.out.print("Ventas guardada");
+//            } else {
+//
+//                System.out.print("Falla para poder guardar la venta");
+//            }
+//            conexion.cerrarConexion();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void actualizarProfesor(String lugarModificar, String dato, String id) {
+//        //                (String columnaAModificar, String dato, String id)
+//        try {
+//
+//            conexion.setConexion();
+//
+//            conexion.setConsulta("Update profesor set" + lugarModificar + "=" + dato + "where id" + id);
+//
+//            if (conexion.getConsulta().executeUpdate() > 0) {
+//                System.out.print("Dato Modificado");
+//            } else {
+//
+//                System.out.print("Fallo al tratar de cambiar el dato");
+//            }
+//            conexion.cerrarConexion();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    
+//    
+//    
+//    public static void eliminarVenta(int ventaObjeto) { //listo
+//
+//        try {
+//
+//            conexion.setConexion();
+//
+//            conexion.setConsulta("Delete from ventas where id = " + ventaObjeto);
+//
+//            if (conexion.getConsulta().executeUpdate() > 0) {
+//                System.out.print("Venta Eliminada");
+//            } else {
+//
+//                System.out.print("Falla al eliminar la venta");
+//            }
+//            conexion.cerrarConexion();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}
