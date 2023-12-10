@@ -9,12 +9,12 @@
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="MIRegistroUsuario">
+            <MenuItem class="javax.swing.JMenuItem" name="RegistroNuevoCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registro de usuarios"/>
+                <Property name="text" type="java.lang.String" value="Registrar nuevo cliente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MIRegistroUsuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistroNuevoClienteActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="MIEditarUsuario">

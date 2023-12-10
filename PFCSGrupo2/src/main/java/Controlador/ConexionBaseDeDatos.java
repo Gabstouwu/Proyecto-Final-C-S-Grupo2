@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ConexionBD {
+public class ConexionBaseDeDatos {
 
     //Datos de gestion de BD
     Connection conexion = null;

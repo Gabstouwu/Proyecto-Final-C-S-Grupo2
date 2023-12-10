@@ -1,6 +1,10 @@
-package Vista;
+package Controlador;
 
+import Modelo.Cliente;
 import Modelo.Venta;
+import Vista.CreacionClienteView;
+import Vista.CreacionVenta;
+import Vista.EliminarView;
 import javax.swing.JOptionPane;
 
 public class ControladorView {
@@ -16,25 +20,28 @@ public class ControladorView {
 
     public static int eliminarVentaView() {
         EliminarView anularVenta = new EliminarView();
-
         JOptionPane.showMessageDialog(null, anularVenta);
         int ventaAnulada = anularVenta.crearObjetoElimina();
-
         System.out.println(ventaAnulada);
-
         return ventaAnulada;
     }
 
+    
+    public static Cliente crearClienteView() {
+        CreacionClienteView ventanaClientes = new CreacionClienteView(); // nuevo jframe
+        JOptionPane.showMessageDialog(null, ventanaClientes); 
+
+        Cliente nuevoCliente = ventanaClientes.crearObjetoCliente();
+        //System.out.println(nuevoCliente.toString());
+        return nuevoCliente;
+    }    
+    
+    
     public static int eliminarCliente() {
-        EliminarView anularCliente = new EliminarView();
-        
-        JOptionPane.showMessageDialog(null, anularCliente);
-                
+        EliminarView anularCliente = new EliminarView();     
+        JOptionPane.showMessageDialog(null, anularCliente);                
         int clientAnulo = anularCliente.crearObjetoElimina();
-
         System.out.println(clientAnulo);
-
         return clientAnulo; 
-
     }
 }

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class ControladorProductos {
 
-    ConexionBD conexion = new ConexionBD();
+    ConexionBaseDeDatos conexion = new ConexionBaseDeDatos();
     ResultSet resultado = null;
 
     public void consultarProductosCompletos() {

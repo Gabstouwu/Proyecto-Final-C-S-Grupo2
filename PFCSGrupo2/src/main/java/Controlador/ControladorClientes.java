@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class ControladorClientes {
 
-    public static ConexionBD conexion = new ConexionBD();
+    public static ConexionBaseDeDatos conexion = new ConexionBaseDeDatos();
     public static ResultSet resultado = null;
 
     public static void consultarClientesCompletos() {
@@ -36,13 +36,13 @@ public class ControladorClientes {
         }
     }
 
-    public void insertarCliente(Cliente a) {
+    public static void crearCliente(Cliente a) {
 
         try {
 
             conexion.setConexion();
 
-            conexion.setConsulta("INSERT INTO clientes (nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña) VALUES (?,?,?,?,?) ");
+            conexion.setConsulta("INSERT INTO clientes (nombre_cliente,telefono_cliente,correo_cliente,fecha_cliente,contraseña_cliente) VALUES (?,?,?,?,?) ");
             conexion.getConsulta().setString(1, a.getNombre_cliente());
             conexion.getConsulta().setString(2, a.getTelefono_cliente());
             conexion.getConsulta().setString(3, a.getCorreo_cliente());

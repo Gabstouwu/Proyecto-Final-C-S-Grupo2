@@ -17,6 +17,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
-        <exec.mainClass>Vista.Principal</exec.mainClass>
+        <exec.mainClass>Controlador.Main</exec.mainClass>
     </properties>
 </project>

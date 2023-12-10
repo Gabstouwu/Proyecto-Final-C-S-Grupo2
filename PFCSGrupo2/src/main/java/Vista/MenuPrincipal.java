@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.ControladorView;
 import Controlador.ControladorClientes;
 import Controlador.ControladorProductos;
 import Controlador.ControladorVentas;
@@ -11,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author naoal
  */
-public class Principal extends javax.swing.JFrame {
+public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public MenuPrincipal() {
         initComponents();
     }
 
@@ -32,7 +33,7 @@ public class Principal extends javax.swing.JFrame {
         JDPEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         MBUsuarios = new javax.swing.JMenu();
-        MIRegistroUsuario = new javax.swing.JMenuItem();
+        RegistroNuevoCliente = new javax.swing.JMenuItem();
         MIEditarUsuario = new javax.swing.JMenuItem();
         MostrarInfoClientes = new javax.swing.JMenuItem();
         EliminarCliente = new javax.swing.JMenuItem();
@@ -61,13 +62,13 @@ public class Principal extends javax.swing.JFrame {
 
         MBUsuarios.setText("Clientes");
 
-        MIRegistroUsuario.setText("Registro de usuarios");
-        MIRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {
+        RegistroNuevoCliente.setText("Registrar nuevo cliente");
+        RegistroNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MIRegistroUsuarioActionPerformed(evt);
+                RegistroNuevoClienteActionPerformed(evt);
             }
         });
-        MBUsuarios.add(MIRegistroUsuario);
+        MBUsuarios.add(RegistroNuevoCliente);
 
         MIEditarUsuario.setText("Editar información de Cliente");
         MIEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -175,15 +176,13 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MIRegistroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRegistroUsuarioActionPerformed
-//        Venta nuevaVenta = CreacionVentaView.crearVentaView();
-//
-//        Cliente gestionClientes = RegistroClientesView.;
-//        gestionClientes.;
+    private void RegistroNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroNuevoClienteActionPerformed
+        Cliente nuevoCliente = ControladorView.crearClienteView() ;
+        ControladorClientes.crearCliente(nuevoCliente);
 
-        System.out.println("Usuario registrado correctamente");
+        //System.out.println("Usuario registrado correctamente");
 
-    }//GEN-LAST:event_MIRegistroUsuarioActionPerformed
+    }//GEN-LAST:event_RegistroNuevoClienteActionPerformed
 
     private void JMIMostrarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIMostrarProductosActionPerformed
         // TODO add your handling code here:
@@ -248,40 +247,6 @@ public class Principal extends javax.swing.JFrame {
         gestionVentas.consultarVentasCompletos();
     }//GEN-LAST:event_verVentaBotonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem EliminarCliente;
@@ -291,8 +256,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMIMostrarProductos;
     private javax.swing.JMenu MBUsuarios;
     private javax.swing.JMenuItem MIEditarUsuario;
-    private javax.swing.JMenuItem MIRegistroUsuario;
     private javax.swing.JMenuItem MostrarInfoClientes;
+    private javax.swing.JMenuItem RegistroNuevoCliente;
     private javax.swing.JMenuItem crearVentaBoton;
     private javax.swing.JMenuItem eliminarVentaBoton;
     private javax.swing.JMenuBar jMenuBar1;

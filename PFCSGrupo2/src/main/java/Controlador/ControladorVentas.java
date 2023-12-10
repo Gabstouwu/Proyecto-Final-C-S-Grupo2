@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class ControladorVentas {
 
-    public static ConexionBD conexion = new ConexionBD();
+    public static ConexionBaseDeDatos conexion = new ConexionBaseDeDatos();
     public static ResultSet resultado = null;
 
 //    public static Venta crearObjetoVenta(String empleado, String cliente, String producto) {
