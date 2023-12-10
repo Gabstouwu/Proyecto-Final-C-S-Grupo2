@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author naoal
- */
+
 public class Cliente {
     int id;
     String nombre_cliente = "";
@@ -71,8 +64,10 @@ public class Cliente {
         fecha_cliente = fecha;
         contraseña_cliente = contraseña;
         
-        //this.id = 0; //Esto será sobreescrito en la BD
+        this.id = 0; //Esto será sobreescrito en la BD
     }
+
+    
 
     @Override
     public String toString() {

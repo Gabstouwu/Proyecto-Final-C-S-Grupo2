@@ -34,7 +34,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         MBUsuarios = new javax.swing.JMenu();
         RegistroNuevoCliente = new javax.swing.JMenuItem();
-        MIEditarUsuario = new javax.swing.JMenuItem();
+        BotonEditarUsuario = new javax.swing.JMenuItem();
         MostrarInfoClientes = new javax.swing.JMenuItem();
         EliminarCliente = new javax.swing.JMenuItem();
         JBProductos = new javax.swing.JMenu();
@@ -70,13 +70,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         MBUsuarios.add(RegistroNuevoCliente);
 
-        MIEditarUsuario.setText("Editar información de Cliente");
-        MIEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        BotonEditarUsuario.setText("Editar información de Cliente");
+        BotonEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MIEditarUsuarioActionPerformed(evt);
+                BotonEditarUsuarioActionPerformed(evt);
             }
         });
-        MBUsuarios.add(MIEditarUsuario);
+        MBUsuarios.add(BotonEditarUsuario);
 
         MostrarInfoClientes.setText("Mostrar información clientes");
         MostrarInfoClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +177,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistroNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroNuevoClienteActionPerformed
-        Cliente nuevoCliente = ControladorView.crearClienteView() ;
+        Cliente nuevoCliente = ControladorView.crearClienteView();
         ControladorClientes.crearCliente(nuevoCliente);
 
         //System.out.println("Usuario registrado correctamente");
@@ -207,19 +207,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void MIEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIEditarUsuarioActionPerformed
-        // TODO add your handling code here:
-        int resultado = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas editar este usuario?", "Editar Usuario", JOptionPane.YES_NO_OPTION);
+    private void BotonEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEditarUsuarioActionPerformed
+        
+        Cliente ECliente = ControladorView.editarCliente();
+        ControladorClientes.actualizarCliente(ECliente);
 
-        // Si el usuario elige "Sí" en el mensaje de confirmación
-        if (resultado == JOptionPane.YES_OPTION) {
-            // Código para editar el usuario
-            // ...
-            // Imprimir mensaje de confirmación
-            System.out.println("Usuario editado correctamente");
-        }
+//        int resultado = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas editar este usuario?", "Editar Usuario", JOptionPane.YES_NO_OPTION);
+//
+//        // Si el usuario elige "Sí" en el mensaje de confirmación
+//        if (resultado == JOptionPane.YES_OPTION) {
+//            // Código para editar el usuario
+//            // ...
+//            // Imprimir mensaje de confirmación
+//            System.out.println("Usuario editado correctamente");
+//        }
 
-    }//GEN-LAST:event_MIEditarUsuarioActionPerformed
+    }//GEN-LAST:event_BotonEditarUsuarioActionPerformed
 
     private void MostrarInfoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarInfoClientesActionPerformed
         ControladorClientes gestionClientes = new ControladorClientes();
@@ -249,13 +252,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BotonEditarUsuario;
     private javax.swing.JMenuItem EliminarCliente;
     private javax.swing.JMenu EliminarVenta;
     private javax.swing.JMenu JBProductos;
     private javax.swing.JDesktopPane JDPEscritorio;
     private javax.swing.JMenuItem JMIMostrarProductos;
     private javax.swing.JMenu MBUsuarios;
-    private javax.swing.JMenuItem MIEditarUsuario;
     private javax.swing.JMenuItem MostrarInfoClientes;
     private javax.swing.JMenuItem RegistroNuevoCliente;
     private javax.swing.JMenuItem crearVentaBoton;

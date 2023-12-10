@@ -1,4 +1,5 @@
 package Controlador;
+
 import Modelo.Cliente;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,18 +61,22 @@ public class ControladorClientes {
         }
     }
 
-    public void actualizarCliente(String columnaAModificar, String dato, String id) {
+    //String datoNombre, String datoTel,String datoCorreo,String datoFecha,String datoContraseña, String idBuscar
+    public static void actualizarCliente(Cliente a) {
 
         try {
-
             conexion.setConexion();
-
-            conexion.setConsulta("Update clientes set " + columnaAModificar + " = " + dato + "where id " + id);
+            //nombre_cliente ,telefono_cliente ,correo_cliente, fecha_cliente ,contraseña_cliente
+            //"UPDATE clientes SET nombre_cliente" + " = " + a.getNombre_cliente() + ", " + "telefono_cliente = " + a.getTelefono_cliente() + ", " + "correo_cliente = " + a.getCorreo_cliente() + ", " + "fecha_cliente = " + a.getFecha_cliente() + ", " + "contraseña_cliente = " + a.getContraseña_cliente() + " WHERE " + a.getId()
+            conexion.setConsulta("UPDATE clientes SET nombre_cliente = '" + a.getNombre_cliente() + "', "
+                    + "telefono_cliente = '" + a.getTelefono_cliente() + "', "
+                    + "correo_cliente = '" + a.getCorreo_cliente() + "', "
+                    + "fecha_cliente = '" + a.getFecha_cliente() + "', "
+                    + "contraseña_cliente = '" + a.getContraseña_cliente() + "' WHERE id = " + a.getId());
 
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.print("Cliente Modificado");
             } else {
-
                 System.out.print("Falla combio de información del cliente");
             }
             conexion.cerrarConexion();
