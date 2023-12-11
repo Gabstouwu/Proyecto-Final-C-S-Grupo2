@@ -12,12 +12,12 @@ public class ControladorVentas {
 
     public static void calculoDeVentas(Venta a) {
         conexion.setConexion();
-    
+
         conexion.setConsulta("SELECT cantidad_producto FROM productos WHERE id = ?");
 
         try {
             // a.getId_producto() devuelve el ID del producto relacionado con la venta
-            int idProducto = a.getId_producto();
+            int idProducto = Integer.parseInt(a.getProducto());
 
             System.out.println("ID del Producto: " + idProducto);  // Imprime el ID del producto para verificar
 
@@ -28,7 +28,7 @@ public class ControladorVentas {
             // Verifica si hay resultados antes de intentar acceder a los datos
             if (resultado.next()) {
                 int cantidadEnBodega = resultado.getInt("cantidad_producto");
-                int productoVendido = a.getId_producto();
+                int productoVendido = a.getCantidad();
 
                 int total = cantidadEnBodega - productoVendido;
                 System.out.println("Cantidad en Bodega después de la venta: " + total);
@@ -57,8 +57,8 @@ public class ControladorVentas {
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.println("Venta Guardada");
 
-                // Después de insertar la venta, realiza el cálculo de ventas
-                calculoDeVentas(a);
+                // Después de insertar la venta, actualiza la cantidad en la bodega
+                actualizarCantidadEnBodega(a.getId_producto(), a.getCantidad());
             } else {
                 System.out.println("Falla para poder guardar la venta");
             }

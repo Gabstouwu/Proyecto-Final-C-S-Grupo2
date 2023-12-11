@@ -5,7 +5,7 @@ public class Venta {
     int id;
     String id_empleado;
     String id_cliente;
-    String producto;
+    String id_Producto;
     int cantidad;
 
     public int getCantidad() {
@@ -49,24 +49,24 @@ public class Venta {
     }
 
     public String getProducto() {
-        return producto;
+        return id_Producto;
     }
 
     public void setProducto(String producto) {
-        this.producto = producto;
+        this.id_Producto = producto;
     }
 
-    public Venta(String empleado, String cliente, int cantidad, String n_producto) {
+    public Venta(String empleado, String cliente, int cantidad, String id_Producto) {
         id_empleado = empleado;
         id_cliente = cliente;
-        this.producto = n_producto;
+        this.id_Producto = id_Producto;
         this.cantidad = cantidad;
         this.id = 0; //Esto será sobreescrito en la BD
     }
 
     @Override
     public String toString() {
-        return "Venta{" + "id=" + id + ", id_empleado=" + id_empleado + ", id_cliente=" + id_cliente + ", producto=" + producto + ", cantidad=" + cantidad + '}';
+        return "Venta{" + "id=" + id + ", id_empleado=" + id_empleado + ", id_cliente=" + id_cliente + ", producto=" + id_Producto + ", cantidad=" + cantidad + '}';
     }
 
 }
