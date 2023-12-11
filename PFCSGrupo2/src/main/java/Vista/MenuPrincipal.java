@@ -47,6 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         crearVentaBoton = new javax.swing.JMenuItem();
         verVentaBoton = new javax.swing.JMenuItem();
         eliminarVentaBoton = new javax.swing.JMenuItem();
+        reporteVentasBoton = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +160,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         EliminarVenta.add(eliminarVentaBoton);
 
+        reporteVentasBoton.setText("Reporte de ventas");
+        reporteVentasBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteVentasBotonActionPerformed(evt);
+            }
+        });
+        EliminarVenta.add(reporteVentasBoton);
+
         jMenuBar1.add(EliminarVenta);
 
         setJMenuBar(jMenuBar1);
@@ -246,6 +255,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         gestionVentas.consultarVentasCompletos();
     }//GEN-LAST:event_verVentaBotonActionPerformed
 
+    private void reporteVentasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteVentasBotonActionPerformed
+        // TODO add your handling code here:
+        ControladorVentas reporteVenta = new ControladorVentas();
+        reporteVenta.reporteVentas();
+    }//GEN-LAST:event_reporteVentasBotonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem BotonAgregarProducto;
@@ -263,6 +278,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem crearVentaBoton;
     private javax.swing.JMenuItem eliminarVentaBoton;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem reporteVentasBoton;
     private javax.swing.JMenuItem verVentaBoton;
     // End of variables declaration//GEN-END:variables
 }

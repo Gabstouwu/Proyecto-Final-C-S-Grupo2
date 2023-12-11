@@ -135,4 +135,41 @@ public class ControladorVentas {
         }
 
     }
+
+    public static void reporteVentas() {
+        try {
+            conexion.setConexion();
+
+            conexion.setConsulta("SELECT COUNT(*) as totalFilas FROM ventas");
+            resultado = conexion.getResultado();
+            int totalFilas = resultado.getInt("totalFilas");
+
+            conexion.setConsulta("SELECT SUM(cantidad_producto) as totalCantidad FROM ventas");
+            resultado = conexion.getResultado();
+            int totalCantidad = resultado.getInt("totalCantidad");
+            String resultadoReporte = "Total de ventas: " + totalFilas + "\nTotal de productos vendidos: " + totalCantidad;
+            
+            conexion.setConsulta("Select id, id_empleado, id_cliente, id_producto, cantidad_producto from ventas");
+            resultado = conexion.getResultado();
+            String printResultado = "";
+
+            while (resultado.next()) {
+                int id = resultado.getInt("id");
+                String nombre = resultado.getString("id_empleado");
+                String cliente = resultado.getString("id_cliente");
+                String idProducto = resultado.getString("id_producto");
+                String cantidad = resultado.getString("cantidad_producto");
+                printResultado += "\nID de la venta : " + id + "\nID del empleado : " + nombre + "\nCantidad en que se compró: " + cantidad + "\nCliente : " + cliente + "\nId del producto : " + idProducto + "\n----------------";
+            }
+
+            JOptionPane.showMessageDialog(null, printResultado);
+            JOptionPane.showMessageDialog(null, resultadoReporte);
+
+            conexion.cerrarConexion();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
