@@ -142,10 +142,12 @@ public class ControladorVentas {
 
             conexion.setConsulta("SELECT COUNT(*) as totalFilas FROM ventas");
             resultado = conexion.getResultado();
+            resultado.next();
             int totalFilas = resultado.getInt("totalFilas");
 
             conexion.setConsulta("SELECT SUM(cantidad_producto) as totalCantidad FROM ventas");
             resultado = conexion.getResultado();
+            resultado.next();
             int totalCantidad = resultado.getInt("totalCantidad");
             String resultadoReporte = "Total de ventas: " + totalFilas + "\nTotal de productos vendidos: " + totalCantidad;
             
