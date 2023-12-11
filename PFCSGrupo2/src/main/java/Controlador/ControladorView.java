@@ -88,4 +88,13 @@ public class ControladorView {
         System.out.println(productoNulo);
         return productoNulo;
     }
+
+    public static Venta crearVenta() {
+        CreacionVenta ventanaVenta = new CreacionVenta(); // nuevo jframe
+        JOptionPane.showMessageDialog(null, ventanaVenta);
+        Venta nuevaVenta = ventanaVenta.crearObjetoVenta();
+        //System.out.println(nuevoCliente.toString());
+        return nuevaVenta;
+    }
+
 }

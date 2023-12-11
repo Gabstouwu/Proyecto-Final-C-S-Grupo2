@@ -3,10 +3,19 @@ package Modelo;
 public class Venta {
 
     int id;
-    String id_empleado = "";
-    String id_cliente = "";
+    String id_empleado;
+    String id_cliente;
+    String producto;
     int cantidad;
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+   
     public int getId() {
         return id;
     }
@@ -39,16 +48,25 @@ public class Venta {
         this.cantidad = id_producto;
     }
 
-    public Venta(int id,String empleado, String cliente, int cantidad) {
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public Venta(String empleado, String cliente, int cantidad, String n_producto) {
         id_empleado = empleado;
         id_cliente = cliente;
+        this.producto = n_producto;
         this.cantidad = cantidad;
         this.id = 0; //Esto será sobreescrito en la BD
     }
 
     @Override
     public String toString() {
-        return "Venta{" + "id=" + id + ", id_empleado=" + id_empleado + ", id_cliente=" + id_cliente + ", cantidad=" + cantidad + '}';
+        return "Venta{" + "id=" + id + ", id_empleado=" + id_empleado + ", id_cliente=" + id_cliente + ", producto=" + producto + ", cantidad=" + cantidad + '}';
     }
-    
+
 }

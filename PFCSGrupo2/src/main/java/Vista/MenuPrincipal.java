@@ -234,8 +234,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
-        Venta nuevaVenta = CreacionVentaView.crearVentaView();
-       // ControladorVentas.insertarVenta(nuevaVenta);
+        
+        Venta nuevaVenta = ControladorView.crearVenta();
+        ControladorVentas.insertarVenta(nuevaVenta);
+        ControladorVentas.calculoDeVentas(nuevaVenta);
 
     }//GEN-LAST:event_crearVentaBotonActionPerformed
 

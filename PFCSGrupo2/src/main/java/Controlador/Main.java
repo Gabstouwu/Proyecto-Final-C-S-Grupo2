@@ -22,7 +22,7 @@ public class Main {
             if (!autorizado) {
                 JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
             } else {
-                JOptionPane.showMessageDialog(null, "Bienvenido");
+
             }
         }
 

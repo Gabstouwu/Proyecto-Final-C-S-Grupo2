@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.ControladorClientes;
+import Controlador.ControladorProductos;
 import Modelo.Venta;
 import javax.swing.JTextField;
 
@@ -30,9 +32,13 @@ public class CreacionVenta extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         empleadoidinput = new javax.swing.JTextField();
         clientenombreinput = new javax.swing.JTextField();
-        productoidinput = new javax.swing.JTextField();
+        productoIdInput = new javax.swing.JTextField();
         inputCantidad = new javax.swing.JTextField();
+        VerListaEmpleados = new javax.swing.JButton();
+        VerListaClientes = new javax.swing.JButton();
+        VerListaProductos = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Nueva Venta");
 
         jLabel2.setText("Digite su ID de empleado");
@@ -66,7 +72,7 @@ public class CreacionVenta extends javax.swing.JPanel {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CantidadCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         empleadoidinput.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +87,28 @@ public class CreacionVenta extends javax.swing.JPanel {
             }
         });
 
+        productoIdInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productoIdInputActionPerformed(evt);
+            }
+        });
+
+        VerListaEmpleados.setText("Ver lista de ID's de empleados");
+
+        VerListaClientes.setText("Ver lista de clientes");
+        VerListaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerListaClientesActionPerformed(evt);
+            }
+        });
+
+        VerListaProductos.setText("Ver lista de ID's de produtos");
+        VerListaProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerListaProductosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -88,23 +116,36 @@ public class CreacionVenta extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(empleadoidinput, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .addComponent(clientenombreinput)
-                    .addComponent(productoidinput)
-                    .addComponent(inputCantidad))
-                .addContainerGap())
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(productoIdInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                        .addComponent(clientenombreinput, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(empleadoidinput, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(inputCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(VerListaEmpleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VerListaClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VerListaProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(empleadoidinput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(empleadoidinput, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(VerListaEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(clientenombreinput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(productoidinput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(clientenombreinput, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(VerListaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(inputCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VerListaProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(productoIdInput, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(inputCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -114,18 +155,20 @@ public class CreacionVenta extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,6 +185,18 @@ public class CreacionVenta extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_clientenombreinputActionPerformed
 
+    private void VerListaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaClientesActionPerformed
+        ControladorClientes gestionClientes = new ControladorClientes();
+        gestionClientes.consultarClientesCompletos();    }//GEN-LAST:event_VerListaClientesActionPerformed
+
+    private void VerListaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerListaProductosActionPerformed
+        ControladorProductos gestionProductos = new ControladorProductos();
+        gestionProductos.consultarProductosCompletos();    }//GEN-LAST:event_VerListaProductosActionPerformed
+
+    private void productoIdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoIdInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productoIdInputActionPerformed
+
     public JTextField getjTextField1() {
         return empleadoidinput;
     }
@@ -151,21 +206,24 @@ public class CreacionVenta extends javax.swing.JPanel {
     }
 
     public JTextField getjTextField3() {
-        return productoidinput;
+        return productoIdInput;
     }
-
+    //String empleado, String cliente, int cantidad, String n_producto
     public Venta crearObjetoVenta() {
         String empleado = this.empleadoidinput.getText();
         String cliente = this.clientenombreinput.getText();
-        int idProducto = Integer.parseInt(this.productoidinput.getText());
+        String idProducto = this.productoIdInput.getText();
         int cantidad = Integer.parseInt(this.inputCantidad.getText());
-        Venta ventaNueva = new Venta(idProducto,empleado,cliente,cantidad);
+        Venta ventaNueva = new Venta(empleado, cliente, cantidad, idProducto);
         return ventaNueva;
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CantidadCompra;
+    private javax.swing.JButton VerListaClientes;
+    private javax.swing.JButton VerListaEmpleados;
+    private javax.swing.JButton VerListaProductos;
     private javax.swing.JTextField clientenombreinput;
     private javax.swing.JTextField empleadoidinput;
     private javax.swing.JTextField inputCantidad;
@@ -175,6 +233,6 @@ public class CreacionVenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField productoidinput;
+    private javax.swing.JTextField productoIdInput;
     // End of variables declaration//GEN-END:variables
 }
