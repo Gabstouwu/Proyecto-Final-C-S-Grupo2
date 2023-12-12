@@ -55,6 +55,8 @@ public class ControladorVentas {
             conexion.getConsulta().setInt(4, a.getCantidad());
 
             if (conexion.getConsulta().executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Venta Guardada");
+
                 System.out.println("Venta Guardada");
 
                 // Después de insertar la venta, actualiza la cantidad en la bodega
@@ -78,6 +80,8 @@ public class ControladorVentas {
             conexion.getConsulta().setInt(2, idProducto);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Cantidad en Bodega actualizada");
+
                 System.out.println("Cantidad en Bodega actualizada");
             } else {
                 System.out.println("Falla al actualizar la cantidad en la bodega");
@@ -124,6 +128,8 @@ public class ControladorVentas {
             conexion.setConsulta("Delete from ventas where id = " + id);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Venta Eliminada");
+
                 System.out.print("Venta Eliminada");
             } else {
 
@@ -150,7 +156,7 @@ public class ControladorVentas {
             resultado.next();
             int totalCantidad = resultado.getInt("totalCantidad");
             String resultadoReporte = "Total de ventas: " + totalFilas + "\nTotal de productos vendidos: " + totalCantidad;
-            
+
             conexion.setConsulta("Select id, id_empleado, id_cliente, id_producto, cantidad_producto from ventas");
             resultado = conexion.getResultado();
             String printResultado = "";

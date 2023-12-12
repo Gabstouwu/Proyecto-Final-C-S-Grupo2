@@ -22,9 +22,9 @@ public class ControladorClientes {
             conexion.getConsulta().setString(4, a.getFecha_cliente());
             conexion.getConsulta().setString(5, a.getContraseña_cliente());
             if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.print("Cliente Guardado");
+                JOptionPane.showMessageDialog(null, "Se creo al cliente correctamente");
             } else {
-                
+
                 System.out.print("Falla para poder guardar el cliente");
             }
             conexion.cerrarConexion();
@@ -72,6 +72,8 @@ public class ControladorClientes {
                     + "contraseña_cliente = '" + a.getContraseña_cliente() + "' WHERE id = " + a.getId());
 
             if (conexion.getConsulta().executeUpdate() > 0) {
+               JOptionPane.showMessageDialog(null, "Se actualizo la informacion del cliente correctamente");
+
                 System.out.print("Cliente Modificado");
             } else {
                 System.out.print("Falla combio de información del cliente");
@@ -91,6 +93,8 @@ public class ControladorClientes {
             conexion.setConsulta("Delete from clientes where id = " + id);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Se elimino al cliente correctamente");
+
                 System.out.print("Cliente Eliminado");
             } else {
 
