@@ -2,9 +2,11 @@ package Vista;
 
 import Controlador.ControladorView;
 import Controlador.ControladorClientes;
+import Controlador.ControladorEmpleado;
 import Controlador.ControladorProductos;
 import Controlador.ControladorVentas;
 import Modelo.Cliente;
+import Modelo.Empleado;
 import Modelo.Producto;
 import Modelo.Venta;
 import javax.swing.JOptionPane;
@@ -33,6 +35,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         JDPEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
+        BotonMenuEmpleados = new javax.swing.JMenu();
+        MostrarEmpleados = new javax.swing.JMenuItem();
+        RegistrarEmpleado = new javax.swing.JMenuItem();
+        EditarEmpleado = new javax.swing.JMenuItem();
+        EliminarEmpleado = new javax.swing.JMenuItem();
         MBUsuarios = new javax.swing.JMenu();
         MostrarInfoClientes = new javax.swing.JMenuItem();
         RegistroNuevoCliente = new javax.swing.JMenuItem();
@@ -61,6 +68,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
             JDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 495, Short.MAX_VALUE)
         );
+
+        BotonMenuEmpleados.setText("Empleados");
+
+        MostrarEmpleados.setText("Mostrar lista completa de empleados");
+        MostrarEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarEmpleadosActionPerformed(evt);
+            }
+        });
+        BotonMenuEmpleados.add(MostrarEmpleados);
+
+        RegistrarEmpleado.setText("Registrar nuevo empleado");
+        RegistrarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarEmpleadoActionPerformed(evt);
+            }
+        });
+        BotonMenuEmpleados.add(RegistrarEmpleado);
+
+        EditarEmpleado.setText("Editar informacion de empleado");
+        EditarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarEmpleadoActionPerformed(evt);
+            }
+        });
+        BotonMenuEmpleados.add(EditarEmpleado);
+
+        EliminarEmpleado.setText("Eliminar empleado");
+        EliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEmpleadoActionPerformed(evt);
+            }
+        });
+        BotonMenuEmpleados.add(EliminarEmpleado);
+
+        jMenuBar1.add(BotonMenuEmpleados);
 
         MBUsuarios.setText("Clientes");
 
@@ -243,7 +286,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     private void crearVentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearVentaBotonActionPerformed
-        
+
         Venta nuevaVenta = ControladorView.crearVenta();
         ControladorVentas.insertarVenta(nuevaVenta);
         ControladorVentas.calculoDeVentas(nuevaVenta);
@@ -261,19 +304,40 @@ public class MenuPrincipal extends javax.swing.JFrame {
         reporteVenta.reporteVentas();
     }//GEN-LAST:event_reporteVentasBotonActionPerformed
 
+    private void MostrarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarEmpleadosActionPerformed
+        ControladorEmpleado gestionEmpleado = new ControladorEmpleado();
+        gestionEmpleado.consultarEmpleadosCompletos();}//GEN-LAST:event_MostrarEmpleadosActionPerformed
+
+    private void RegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarEmpleadoActionPerformed
+        Empleado nuevoEmpleado = ControladorView.crearEmpleadoView();
+        ControladorEmpleado.crearEmpleado(nuevoEmpleado);    }//GEN-LAST:event_RegistrarEmpleadoActionPerformed
+
+    private void EditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEmpleadoActionPerformed
+        Empleado EEmpleado = ControladorView.editarCEmpleado();
+        ControladorEmpleado.actualizarEmpleado(EEmpleado);    }//GEN-LAST:event_EditarEmpleadoActionPerformed
+
+    private void EliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpleadoActionPerformed
+        int eliminarEmpleado = ControladorView.eliminarEmpleado();
+        ControladorVentas.eliminarVenta(eliminarEmpleado);    }//GEN-LAST:event_EliminarEmpleadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem BotonAgregarProducto;
     private javax.swing.JMenuItem BotonEditarProducto;
     private javax.swing.JMenuItem BotonEditarUsuario;
     private javax.swing.JMenuItem BotonEliminarProducto;
+    private javax.swing.JMenu BotonMenuEmpleados;
     private javax.swing.JMenuItem BotonMostrarProductos;
+    private javax.swing.JMenuItem EditarEmpleado;
     private javax.swing.JMenuItem EliminarCliente;
+    private javax.swing.JMenuItem EliminarEmpleado;
     private javax.swing.JMenu EliminarVenta;
     private javax.swing.JMenu JBProductos;
     private javax.swing.JDesktopPane JDPEscritorio;
     private javax.swing.JMenu MBUsuarios;
+    private javax.swing.JMenuItem MostrarEmpleados;
     private javax.swing.JMenuItem MostrarInfoClientes;
+    private javax.swing.JMenuItem RegistrarEmpleado;
     private javax.swing.JMenuItem RegistroNuevoCliente;
     private javax.swing.JMenuItem crearVentaBoton;
     private javax.swing.JMenuItem eliminarVentaBoton;

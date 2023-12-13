@@ -32,13 +32,16 @@ public class LoginView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         inputPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        inputPassword.setText("123");
+        inputPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPasswordActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel2.setText("Contraseña");
 
         NombreInput.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        NombreInput.setText("admin");
         NombreInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreInputActionPerformed(evt);
@@ -88,6 +91,10 @@ public class LoginView extends javax.swing.JPanel {
     private void NombreInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreInputActionPerformed
+
+    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPasswordActionPerformed
 
     public Admin crearObjetoAdmin() {
         String usuario_admin = this.NombreInput.getText();

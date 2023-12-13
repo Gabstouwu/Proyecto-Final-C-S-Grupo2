@@ -2,14 +2,18 @@ package Controlador;
 
 import Modelo.Admin;
 import Modelo.Cliente;
+import Modelo.Empleado;
 import Modelo.Producto;
 import Modelo.Venta;
 import Vista.CreacionClienteView;
+import Vista.CreacionEmpleadoView;
 import Vista.CreacionProductoView;
 import Vista.CreacionVenta;
 import Vista.EdicionClienteView;
+import Vista.EdicionEmpleadoView;
 import Vista.EdicionProductoView;
 import Vista.EliminarClienteView;
+import Vista.EliminarEmpleadoView;
 import Vista.EliminarProductoView;
 import Vista.EliminarVentaView;
 import Vista.LoginView;
@@ -24,13 +28,21 @@ public class ControladorView {
         return logIn;
     }
 
-    // static ControladorVentas creacionVenta= new ControladorVentas();
+    ///------------Venta
     public static Venta crearVentaView() {
         CreacionVenta nuevaVenta = new CreacionVenta(); // nuevo jframe
         JOptionPane.showMessageDialog(null, nuevaVenta);
         Venta ventaNueva = nuevaVenta.crearObjetoVenta();
         System.out.println(ventaNueva.toString());
         return ventaNueva;
+    }
+
+    public static Venta crearVenta() {
+        CreacionVenta ventanaVenta = new CreacionVenta(); // nuevo jframe
+        JOptionPane.showMessageDialog(null, ventanaVenta);
+        Venta nuevaVenta = ventanaVenta.crearObjetoVenta();
+        //System.out.println(nuevoCliente.toString());
+        return nuevaVenta;
     }
 
     public static int eliminarVentaView() {
@@ -40,6 +52,7 @@ public class ControladorView {
         System.out.println(ventaAnulada);
         return ventaAnulada;
     }
+    ///------------Cliente
 
     public static Cliente crearClienteView() {
         CreacionClienteView ventanaClientes = new CreacionClienteView(); // nuevo jframe
@@ -64,6 +77,7 @@ public class ControladorView {
 
         return nuevoEdicionCliente;
     }
+    ///------------Producto
 
     public static Producto crearProducto() {
         CreacionProductoView ventanaProducto = new CreacionProductoView(); // nuevo jframe
@@ -89,12 +103,29 @@ public class ControladorView {
         return productoNulo;
     }
 
-    public static Venta crearVenta() {
-        CreacionVenta ventanaVenta = new CreacionVenta(); // nuevo jframe
-        JOptionPane.showMessageDialog(null, ventanaVenta);
-        Venta nuevaVenta = ventanaVenta.crearObjetoVenta();
+    ///------------Empleado
+    public static Empleado crearEmpleadoView() {
+        CreacionEmpleadoView ventanaEmpleado = new CreacionEmpleadoView(); // nuevo jframe
+        JOptionPane.showMessageDialog(null, ventanaEmpleado);
+        Empleado nuevoEmpleado = ventanaEmpleado.crearObjetoEmpleado();
         //System.out.println(nuevoCliente.toString());
-        return nuevaVenta;
+        return nuevoEmpleado;
     }
 
+    public static int eliminarEmpleado() {
+        EliminarEmpleadoView anularEmpleado = new EliminarEmpleadoView();
+        JOptionPane.showMessageDialog(null, anularEmpleado);
+        int empleadotAnulo = anularEmpleado.crearObjetoElimina();
+        System.out.println(empleadotAnulo);
+        return empleadotAnulo;
+    }
+
+    public static Empleado editarCEmpleado() {
+        EdicionEmpleadoView VentanaEdicionEmpleado = new EdicionEmpleadoView();
+        JOptionPane.showMessageDialog(null, VentanaEdicionEmpleado);
+        Empleado nuevoEdicionEmpleado = VentanaEdicionEmpleado.editarObjetoEmpleado();
+
+        return nuevoEdicionEmpleado;
+
+    }
 }
